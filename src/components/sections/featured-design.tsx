@@ -50,15 +50,19 @@ export function FeaturedDesign() {
               loading="lazy"
               className="h-64 w-full object-cover"
             />
-            <div className="absolute inset-0 bg-[oklch(0.2_0.02_60_/_0.2)]" aria-hidden="true" />
+            <div
+              className="absolute inset-0 bg-gradient-to-b from-[oklch(0.18_0.02_60_/_0.72)] via-[oklch(0.18_0.02_60_/_0.32)] to-[oklch(0.18_0.02_60_/_0.1)]"
+              aria-hidden="true"
+            />
             <div className="absolute inset-x-6 top-6">
               <span className="inline-flex rounded-full bg-card px-4 py-1.5 text-xs text-card-foreground">
                 Bespoke furniture
               </span>
-              <p className="mt-4 max-w-[18ch] font-display text-lg text-ink-foreground">
+              <p className="mt-4 max-w-[18ch] font-display text-lg text-ink-foreground drop-shadow-[0_2px_14px_oklch(0.2_0_0_/_0.5)]">
                 Made for the slow hours of everyday living
               </p>
             </div>
+
             <a
               href="#projects"
               aria-label="View bespoke furniture projects"
