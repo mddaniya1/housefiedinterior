@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      consultation_requests: {
+        Row: {
+          budget_range: string | null
+          created_at: string
+          id: string
+          location: string | null
+          message: string
+          project_type: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          budget_range?: string | null
+          created_at?: string
+          id?: string
+          location?: string | null
+          message: string
+          project_type: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          budget_range?: string | null
+          created_at?: string
+          id?: string
+          location?: string | null
+          message?: string
+          project_type?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
