@@ -32,52 +32,48 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "LocalBusiness",
-              "@id": "/#studio",
-              name: BRAND.name,
-              description: BRAND.description,
-              telephone: BRAND.phone,
-              email: BRAND.email,
-              priceRange: "$$$",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: BRAND.address.street,
-                addressLocality: BRAND.address.city,
-                addressRegion: BRAND.address.region,
-                postalCode: BRAND.address.postalCode,
-                addressCountry: BRAND.address.country,
-              },
-              openingHours: "Mo-Fr 09:00-18:00",
-            },
-            {
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-                { "@type": "ListItem", position: 2, name: "Projects", item: "/#projects" },
-                { "@type": "ListItem", position: 3, name: "Services", item: "/#services" },
-              ],
-            },
-            {
-              "@type": "FAQPage",
-              mainEntity: FAQS.map((faq) => ({
-                "@type": "Question",
-                name: faq.question,
-                acceptedAnswer: { "@type": "Answer", text: faq.answer },
-              })),
-            },
-          ],
-        }),
-      },
-    ],
   }),
   component: HomePage,
+});
+
+const STRUCTURED_DATA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "/#studio",
+      name: BRAND.name,
+      description: BRAND.description,
+      telephone: BRAND.phone,
+      email: BRAND.email,
+      priceRange: "$$$",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: BRAND.address.street,
+        addressLocality: BRAND.address.city,
+        addressRegion: BRAND.address.region,
+        postalCode: BRAND.address.postalCode,
+        addressCountry: BRAND.address.country,
+      },
+      openingHours: "Mo-Fr 09:00-18:00",
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+        { "@type": "ListItem", position: 2, name: "Projects", item: "/#projects" },
+        { "@type": "ListItem", position: 3, name: "Services", item: "/#services" },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQS.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ],
 });
 
 /** Quiet luxury loading curtain shown briefly on first paint. */
@@ -116,6 +112,11 @@ function LoadingCurtain() {
 function HomePage() {
   return (
     <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: STRUCTURED_DATA }}
+      />
       <LoadingCurtain />
       <SiteNav />
       <motion.main

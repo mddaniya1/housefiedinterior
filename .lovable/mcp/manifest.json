@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.1",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://zvuxymhkzbnmhcjyerpd.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "ethereal-spaces",
+      "version": "0.1.0",
+      "title": "Ethereal Spaces"
+    },
+    "tools": [
+      {
+        "name": "get_studio_info",
+        "title": "Get studio information",
+        "description": "Get Lumen & Oak studio details: description, contact information, opening hours, key figures and frequently asked questions.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_services",
+        "title": "List studio services",
+        "description": "List the design services Lumen & Oak offers, with a short description of each.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_projects",
+        "title": "List studio projects",
+        "description": "List Lumen & Oak interior design projects, optionally filtered by category (Residential, Retail, Hospitality).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "enum": [
+                "Residential",
+                "Retail",
+                "Hospitality"
+              ],
+              "description": "Optional project category filter."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "submit_consultation_request",
+        "title": "Submit a consultation request",
+        "description": "Send a consultation enquiry to Lumen & Oak on behalf of the signed-in user, describing the project they want help with.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "project_type": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Kind of project, e.g. Apartment, Villa, Retail store, Hotel."
+            },
+            "message": {
+              "type": "string",
+              "minLength": 1,
+              "description": "What the user would like the studio to do."
+            },
+            "location": {
+              "type": "string",
+              "description": "City or region of the project."
+            },
+            "budget_range": {
+              "type": "string",
+              "description": "Indicative budget range, free text."
+            }
+          },
+          "required": [
+            "project_type",
+            "message"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_my_consultation_requests",
+        "title": "List my consultation requests",
+        "description": "List the consultation enquiries the signed-in user has sent to Lumen & Oak.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
