@@ -112,6 +112,11 @@ function LoadingCurtain() {
 function HomePage() {
   return (
     <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: STRUCTURED_DATA }}
+      />
       <LoadingCurtain />
       <SiteNav />
       <motion.main
