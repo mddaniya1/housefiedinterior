@@ -5,7 +5,7 @@ import { Reveal } from "@/components/motion/reveal";
 function Stat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
   const { ref, value: current } = useCountUp(value);
   return (
-    <div>
+    <div className="text-center">
       <p className="font-display text-4xl font-semibold tracking-tight lg:text-5xl">
         <span ref={ref}>{current}</span>
         {suffix}
