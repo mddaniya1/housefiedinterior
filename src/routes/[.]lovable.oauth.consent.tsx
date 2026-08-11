@@ -73,7 +73,7 @@ function Consent() {
   const [error, setError] = useState<string | null>(null);
 
   const clientName = details?.client?.name ?? details?.client?.client_name ?? "this application";
-  const scopes = (details?.scope ?? "").split(/\s+/).filter(Boolean);
+  const scopes: string[] = (details?.scope ?? "").split(/\s+/).filter(Boolean);
 
   async function signIn() {
     setBusy(true);
