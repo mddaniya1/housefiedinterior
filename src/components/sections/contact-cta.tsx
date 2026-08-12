@@ -155,7 +155,7 @@ export function ContactCta() {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="mt-8 w-full rounded-full bg-white text-black hover:bg-black hover:text-white"
+                className="mt-8 w-full rounded-full border border-white/30 bg-black text-white hover:bg-white hover:text-black"
               >
                 {isSubmitting ? "Sending…" : "Book consultation"}
                 <ArrowUpRight className="size-4" />
