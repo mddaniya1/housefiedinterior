@@ -46,7 +46,11 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button asChild size="lg" className="hidden rounded-full px-6 lg:inline-flex">
+          <Button
+            asChild
+            size="lg"
+            className="hidden rounded-full bg-black px-6 text-white hover:bg-white hover:text-black lg:inline-flex"
+          >
             <a href="#contact">Book consultation</a>
           </Button>
           <button
@@ -84,7 +88,11 @@ export function SiteNav() {
                 </li>
               ))}
               <li className="pt-4">
-                <Button asChild size="lg" className="w-full rounded-full">
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full rounded-full bg-black text-white hover:bg-white hover:text-black"
+                >
                   <a href="#contact" onClick={() => setOpen(false)}>
                     Book consultation
                   </a>
