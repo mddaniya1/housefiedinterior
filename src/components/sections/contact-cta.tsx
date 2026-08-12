@@ -151,7 +151,12 @@ export function ContactCta() {
                 </div>
               </div>
 
-              <Button type="submit" size="lg" disabled={isSubmitting} className="mt-8 w-full rounded-full">
+              <Button
+                type="submit"
+                size="lg"
+                disabled={isSubmitting}
+                className="mt-8 w-full rounded-full bg-white text-black hover:bg-black hover:text-white"
+              >
                 {isSubmitting ? "Sending…" : "Book consultation"}
                 <ArrowUpRight className="size-4" />
               </Button>
