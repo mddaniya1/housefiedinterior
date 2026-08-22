@@ -38,11 +38,11 @@ export function Hero() {
             transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
             className="eyebrow text-ink-foreground/75"
           >
-            {BRAND.tagline} · Lisbon
+            {BRAND.tagline} · {BRAND.address.city}
           </motion.p>
 
           <div className="mt-10">
-            <h1 className="display-xl max-w-[15ch] text-ink-foreground">Quietly Extraordinary</h1>
+            <h1 className="display-xl max-w-[18ch] text-ink-foreground">{HERO.heading}</h1>
 
             <div className="mt-10 grid items-end gap-6 lg:grid-cols-12">
               {/* Floating glass information card */}
@@ -52,21 +52,19 @@ export function Hero() {
                 transition={{ duration: 1, ease: EASE, delay: 0.35 }}
                 className="glass-panel rounded-3xl p-6 lg:col-span-5"
               >
-                <p className="text-sm leading-relaxed text-ink-foreground/85">
-                  We design homes around light, material and stillness. Sixteen years of restrained
-                  interiors for people who would rather feel a room than notice it.
-                </p>
+                <p className="text-sm leading-relaxed text-ink-foreground/85">{HERO.description}</p>
                 <Button
                   asChild
                   variant="secondary"
                   size="lg"
                   className="mt-6 rounded-full bg-card px-6 text-card-foreground hover:bg-card/90"
                 >
-                  <a href="#projects">
-                    View our work
+                  <a href="#contact">
+                    {HERO.cta}
                     <ArrowUpRight className="size-4" />
                   </a>
                 </Button>
+
               </motion.div>
 
               {/* Floating project preview */}
