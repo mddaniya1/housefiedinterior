@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-/** Animates 0 → target once the element scrolls into view. */
-export function useCountUp(target: number, duration = 1600) {
+/** Animates 0 → target once the element scrolls into view. Supports decimal targets. */
+export function useCountUp(target: number, decimals = 0, duration = 1600) {
   const ref = useRef<HTMLSpanElement>(null);
   const [value, setValue] = useState(0);
   const started = useRef(false);
@@ -20,7 +20,7 @@ export function useCountUp(target: number, duration = 1600) {
           const progress = Math.min((now - start) / duration, 1);
           // easeOutCubic
           const eased = 1 - Math.pow(1 - progress, 3);
-          setValue(Math.round(target * eased));
+          setValue(Number((target * eased).toFixed(decimals)));
           if (progress < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
@@ -30,7 +30,7 @@ export function useCountUp(target: number, duration = 1600) {
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, [target, duration]);
+  }, [target, decimals, duration]);
 
-  return { ref, value };
+  return { ref, value: value.toFixed(decimals) };
 }
