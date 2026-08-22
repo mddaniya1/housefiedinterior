@@ -20,7 +20,7 @@ export function Hero() {
         <motion.div style={{ y: imageY }} className="absolute inset-0 -bottom-16">
           <img
             src={IMAGES.heroLiving}
-            alt="Warm contemporary living room designed by the studio, bathed in late afternoon light"
+            alt="Elegant contemporary Karachi living room designed and executed by HOUSEFIED"
             width={1920}
             height={1200}
             className="size-full object-cover"
@@ -76,7 +76,7 @@ export function Hero() {
               >
                 <img
                   src={IMAGES.featureLounge}
-                  alt="Preview of a cream lounge interior from the studio archive"
+                  alt="Preview of a modern TV wall and lounge project by HOUSEFIED"
                   width={1280}
                   height={960}
                   loading="lazy"
@@ -98,7 +98,7 @@ export function Hero() {
                   className="grid size-28 place-items-center rounded-full border border-[oklch(1_0_0_/_0.35)]"
                 >
                   <span className="font-display text-[0.6rem] tracking-[0.28em] text-ink-foreground/80">
-                    EST · 2010
+                    TURNKEY · KHI
                   </span>
                 </motion.div>
               </motion.div>
