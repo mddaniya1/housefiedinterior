@@ -64,8 +64,8 @@
               "type": "string",
               "enum": [
                 "Residential",
-                "Retail",
-                "Hospitality"
+                "Commercial",
+                "Turnkey"
               ],
               "description": "Optional project category filter."
             }
