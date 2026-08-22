@@ -6,7 +6,7 @@ export default defineTool({
   name: "get_studio_info",
   title: "Get studio information",
   description:
-    "Get Lumen & Oak studio details: description, contact information, opening hours, key figures and frequently asked questions.",
+    "Get HOUSEFIED studio details: description, contact information, opening hours, key figures and frequently asked questions.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {

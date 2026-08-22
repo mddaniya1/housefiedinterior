@@ -9,7 +9,7 @@ export default defineTool({
   name: "list_projects",
   title: "List studio projects",
   description:
-    "List Lumen & Oak interior design projects, optionally filtered by category (Residential, Retail, Hospitality).",
+    "List HOUSEFIED interior design projects, optionally filtered by category (Residential, Commercial, Turnkey).",
   inputSchema: {
     category: z
       .enum(categories)

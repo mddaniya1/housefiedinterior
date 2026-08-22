@@ -7,7 +7,7 @@ export default defineTool({
   name: "submit_consultation_request",
   title: "Submit a consultation request",
   description:
-    "Send a consultation enquiry to Lumen & Oak on behalf of the signed-in user, describing the project they want help with.",
+    "Send a consultation enquiry to HOUSEFIED on behalf of the signed-in user, describing the project they want help with.",
   inputSchema: {
     project_type: z
       .string()

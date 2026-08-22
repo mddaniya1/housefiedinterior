@@ -19,7 +19,7 @@
       {
         "name": "get_studio_info",
         "title": "Get studio information",
-        "description": "Get Lumen & Oak studio details: description, contact information, opening hours, key figures and frequently asked questions.",
+        "description": "Get HOUSEFIED studio details: description, contact information, opening hours, key figures and frequently asked questions.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -35,7 +35,7 @@
       {
         "name": "list_services",
         "title": "List studio services",
-        "description": "List the design services Lumen & Oak offers, with a short description of each.",
+        "description": "List the design services HOUSEFIED offers, with a short description of each.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -51,7 +51,7 @@
       {
         "name": "list_projects",
         "title": "List studio projects",
-        "description": "List Lumen & Oak interior design projects, optionally filtered by category (Residential, Retail, Hospitality).",
+        "description": "List HOUSEFIED interior design projects, optionally filtered by category (Residential, Commercial, Turnkey).",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -78,7 +78,7 @@
       {
         "name": "submit_consultation_request",
         "title": "Submit a consultation request",
-        "description": "Send a consultation enquiry to Lumen & Oak on behalf of the signed-in user, describing the project they want help with.",
+        "description": "Send a consultation enquiry to HOUSEFIED on behalf of the signed-in user, describing the project they want help with.",
         "annotations": {
           "readOnlyHint": false,
           "destructiveHint": false,
@@ -118,7 +118,7 @@
       {
         "name": "list_my_consultation_requests",
         "title": "List my consultation requests",
-        "description": "List the consultation enquiries the signed-in user has sent to Lumen & Oak.",
+        "description": "List the consultation enquiries the signed-in user has sent to HOUSEFIED.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,

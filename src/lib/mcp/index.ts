@@ -15,7 +15,7 @@ export default defineMcp({
   title: "Ethereal Spaces",
   version: "0.1.0",
   instructions:
-    "Tools for the Lumen & Oak interior design atelier. Use `get_studio_info`, `list_services` and `list_projects` to answer questions about the studio and its work. Use `submit_consultation_request` to send a project enquiry as the signed-in user, and `list_my_consultation_requests` to review their previous enquiries.",
+    "Tools for HOUSEFIED, an interior design and turnkey execution studio in Karachi. Use `get_studio_info`, `list_services` and `list_projects` to answer questions about the studio and its work. Use `submit_consultation_request` to send a project enquiry as the signed-in user, and `list_my_consultation_requests` to review their previous enquiries.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated",
