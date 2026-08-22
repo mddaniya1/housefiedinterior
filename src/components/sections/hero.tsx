@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
-import { BRAND, IMAGES } from "@/constants/site";
+import { BRAND, HERO, IMAGES } from "@/constants/site";
 import { Button } from "@/components/ui/button";
 import { EASE } from "@/components/motion/reveal";
 
