@@ -51,7 +51,7 @@ export function SiteNav() {
             size="lg"
             className="hidden rounded-full bg-black px-6 text-white hover:bg-white hover:text-black lg:inline-flex"
           >
-            <a href="#contact">Book consultation</a>
+            <a href="#contact">Book a Free Consultation</a>
           </Button>
           <button
             type="button"
@@ -94,7 +94,7 @@ export function SiteNav() {
                   className="w-full rounded-full bg-black text-white hover:bg-white hover:text-black"
                 >
                   <a href="#contact" onClick={() => setOpen(false)}>
-                    Book consultation
+                    Book a Free Consultation
                   </a>
                 </Button>
               </li>

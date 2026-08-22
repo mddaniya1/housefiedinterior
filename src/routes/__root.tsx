@@ -79,12 +79,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lumen & Oak — Interior Design Atelier" },
+      { title: "HOUSEFIED — Interior Design & Turnkey Execution, Karachi" },
       {
         name: "description",
-        content: "Lisbon interior design atelier crafting calm, light-led homes.",
+        content: "Karachi interior design and turnkey execution studio for luxury kitchens, TV walls, bathrooms and wardrobes.",
       },
-      { property: "og:site_name", content: "Lumen & Oak" },
+      { property: "og:site_name", content: "HOUSEFIED" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
-import { BRAND, IMAGES } from "@/constants/site";
+import { BRAND, HERO, IMAGES } from "@/constants/site";
 import { Button } from "@/components/ui/button";
 import { EASE } from "@/components/motion/reveal";
 
@@ -20,7 +20,7 @@ export function Hero() {
         <motion.div style={{ y: imageY }} className="absolute inset-0 -bottom-16">
           <img
             src={IMAGES.heroLiving}
-            alt="Warm contemporary living room designed by the studio, bathed in late afternoon light"
+            alt="Elegant contemporary Karachi living room designed and executed by HOUSEFIED"
             width={1920}
             height={1200}
             className="size-full object-cover"
@@ -38,11 +38,11 @@ export function Hero() {
             transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
             className="eyebrow text-ink-foreground/75"
           >
-            {BRAND.tagline} · Lisbon
+            {BRAND.tagline} · {BRAND.address.city}
           </motion.p>
 
           <div className="mt-10">
-            <h1 className="display-xl max-w-[15ch] text-ink-foreground">Quietly Extraordinary</h1>
+            <h1 className="display-xl max-w-[18ch] text-ink-foreground">{HERO.heading}</h1>
 
             <div className="mt-10 grid items-end gap-6 lg:grid-cols-12">
               {/* Floating glass information card */}
@@ -52,21 +52,19 @@ export function Hero() {
                 transition={{ duration: 1, ease: EASE, delay: 0.35 }}
                 className="glass-panel rounded-3xl p-6 lg:col-span-5"
               >
-                <p className="text-sm leading-relaxed text-ink-foreground/85">
-                  We design homes around light, material and stillness. Sixteen years of restrained
-                  interiors for people who would rather feel a room than notice it.
-                </p>
+                <p className="text-sm leading-relaxed text-ink-foreground/85">{HERO.description}</p>
                 <Button
                   asChild
                   variant="secondary"
                   size="lg"
                   className="mt-6 rounded-full bg-card px-6 text-card-foreground hover:bg-card/90"
                 >
-                  <a href="#projects">
-                    View our work
+                  <a href="#contact">
+                    {HERO.cta}
                     <ArrowUpRight className="size-4" />
                   </a>
                 </Button>
+
               </motion.div>
 
               {/* Floating project preview */}
@@ -78,7 +76,7 @@ export function Hero() {
               >
                 <img
                   src={IMAGES.featureLounge}
-                  alt="Preview of a cream lounge interior from the studio archive"
+                  alt="Preview of a modern TV wall and lounge project by HOUSEFIED"
                   width={1280}
                   height={960}
                   loading="lazy"
@@ -100,7 +98,7 @@ export function Hero() {
                   className="grid size-28 place-items-center rounded-full border border-[oklch(1_0_0_/_0.35)]"
                 >
                   <span className="font-display text-[0.6rem] tracking-[0.28em] text-ink-foreground/80">
-                    EST · 2010
+                    TURNKEY · KHI
                   </span>
                 </motion.div>
               </motion.div>

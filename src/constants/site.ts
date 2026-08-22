@@ -23,20 +23,27 @@ export const IMAGES = {
 };
 
 export const BRAND = {
-  name: "Lumen & Oak",
-  tagline: "Interior Design Atelier",
+  name: "HOUSEFIED",
+  owner: "Hamza",
+  tagline: "Interior Design & Turnkey Execution",
   description:
-    "Lumen & Oak is an interior design atelier crafting calm, light-led homes — residential interiors, bespoke furniture and full architectural styling.",
-  phone: "+351 210 555 480",
-  email: "studio@lumenandoak.com",
+    "HOUSEFIED is a Karachi interior design and turnkey execution studio for elite residential and commercial spaces — luxury kitchens, modern TV walls, bespoke bathrooms and smart wardrobes.",
+  phone: "+92 339 4122544",
+  whatsapp: "https://wa.me/923394122544",
+  email: "info.housefied@gmail.com",
   address: {
-    street: "Rua da Alfândega 42",
-    city: "Lisbon",
-    region: "Lisboa",
-    postalCode: "1100-016",
-    country: "PT",
+    street: "Office no 201, 2nd Floor, Qurtuba Market/Mall, near Grappetite Chowrangi, Bahadurabad",
+    city: "Karachi",
+    region: "Sindh",
+    postalCode: "74800",
+    country: "PK",
   },
-  hours: "Mon – Fri · 09:00 – 18:00",
+  satelliteAddress: "Block B, Adamjee Nagar Society, Karachi",
+  hours: "Closed · Opens 10:00 AM on Monday",
+  social: [
+    { platform: "Facebook", handle: "Housefied Karachi" },
+    { platform: "Instagram", handle: "@housefied" },
+  ],
 } as const;
 
 export const NAV_LINKS = [
@@ -47,22 +54,48 @@ export const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ] as const;
 
+export const HERO = {
+  heading: "Turning Homes into a Living Paradise",
+  description:
+    "Expert interior design and seamless execution services in Karachi. Crafting timeless spaces, luxury kitchens, modern wardrobes, and elegant living areas tailored to elite lifestyles.",
+  cta: "Book a Free Consultation",
+} as const;
+
 export const STATS = [
-  { value: 240, suffix: "+", label: "Interiors completed" },
-  { value: 180, suffix: "+", label: "Private clients" },
-  { value: 16, suffix: "", label: "Years of practice" },
-  { value: 9, suffix: "", label: "Design awards" },
+  { value: 11, decimals: 0, suffix: "K+", label: "Facebook Followers" },
+  { value: 50, decimals: 0, suffix: "+", label: "Completed Homes" },
+  { value: 5, decimals: 1, suffix: "", label: "Google Rating (9 Verified Reviews)" },
+  { value: 100, decimals: 0, suffix: "%", label: "Dedicated Execution" },
 ] as const;
 
 export const COLLECTION = [
-  { name: "Casa Aurelia", place: "Cascais", image: project1, span: "short" },
-  { name: "The Reading Room", place: "Porto", image: project2, span: "tall" },
-  { name: "Linen House", place: "Sintra", image: project3, span: "tall" },
-  { name: "Fluted Salon", place: "Lisbon", image: project4, span: "short" },
-  { name: "Travertine Passage", place: "Comporta", image: project5, span: "tall" },
+  {
+    name: "Luxury Kitchens",
+    place: "Smart, stylish and highly functional culinary spaces",
+    image: project1,
+    span: "short",
+  },
+  {
+    name: "Modern TV Walls & Lounges",
+    place: "Timeless and elegant living area entertainment centers",
+    image: project2,
+    span: "tall",
+  },
+  {
+    name: "Bespoke Bathrooms",
+    place: "Where luxury meets comfort and premium hardware",
+    image: project3,
+    span: "tall",
+  },
+  {
+    name: "Smart Wardrobes & Cabinetry",
+    place: "Organized, elevated and custom storage design",
+    image: project4,
+    span: "short",
+  },
 ] as const;
 
-export const PROJECT_CATEGORIES = ["All", "Residential", "Retail", "Hospitality"] as const;
+export const PROJECT_CATEGORIES = ["All", "Residential", "Commercial", "Turnkey"] as const;
 
 export type ProjectCategory = (typeof PROJECT_CATEGORIES)[number];
 
@@ -72,45 +105,49 @@ export const PROJECTS: {
   year: string;
   image: string;
 }[] = [
-  { name: "Casa Aurelia", category: "Residential", year: "2024", image: project1 },
-  { name: "The Reading Room", category: "Hospitality", year: "2024", image: project2 },
-  { name: "Linen House", category: "Residential", year: "2023", image: project3 },
-  { name: "Fluted Salon", category: "Retail", year: "2023", image: project4 },
-  { name: "Travertine Passage", category: "Hospitality", year: "2022", image: project5 },
-  { name: "Atelier Norte", category: "Retail", year: "2022", image: featureLounge },
+  { name: "Bahadurabad Kitchen", category: "Residential", year: "2025", image: project1 },
+  { name: "Adamjee Nagar Lounge", category: "Residential", year: "2025", image: project2 },
+  { name: "DHA Phase VI Bathroom", category: "Residential", year: "2024", image: project3 },
+  { name: "Clifton Wardrobe Suite", category: "Turnkey", year: "2024", image: project4 },
+  { name: "Gulshan Corporate Floor", category: "Commercial", year: "2024", image: project5 },
+  { name: "Bath Island Full Home", category: "Turnkey", year: "2023", image: featureLounge },
 ];
 
 export const SERVICES = [
   {
-    title: "Full Interior Design",
+    title: "Luxury Kitchens",
     description:
-      "Concept, spatial planning, material palettes and complete delivery for private residences.",
+      "Imported hardware, seamless counters and precise joinery for culinary spaces built to last.",
     icon: "compass",
   },
   {
-    title: "Architectural Styling",
+    title: "Modern TV Walls & Lounges",
     description:
-      "Light studies, joinery detailing and finishes developed alongside your architect.",
-    icon: "ruler",
-  },
-  {
-    title: "Bespoke Furniture",
-    description: "Made-to-measure pieces produced with Iberian workshops and natural materials.",
-    icon: "armchair",
-  },
-  {
-    title: "Art & Object Curation",
-    description: "Sourcing of art, ceramics and vintage objects that give a room its quiet story.",
+      "Elegant media walls, concealed cabling and lounge layouts that anchor the whole living area.",
     icon: "frame",
   },
   {
-    title: "Renovation Direction",
-    description: "On-site direction of trades, schedules and budgets from demolition to handover.",
+    title: "Bespoke Bathrooms",
+    description:
+      "Stone, brass and light detailed together for bathrooms that feel like a private spa.",
+    icon: "ruler",
+  },
+  {
+    title: "Smart Wardrobes & Cabinetry",
+    description:
+      "Made-to-measure wardrobes with intelligent internals, soft-close motion and quiet finishes.",
+    icon: "armchair",
+  },
+  {
+    title: "Full Home Turnkey Execution",
+    description:
+      "Design, procurement and on-site direction of every trade — handed over ready to live in.",
     icon: "hardhat",
   },
   {
-    title: "Design Consultation",
-    description: "A focused half-day session with drawings, palettes and a prioritised action plan.",
+    title: "Free Design Consultation",
+    description:
+      "A focused visit with Hamza: measurements, material direction and a transparent scope plan.",
     icon: "message",
   },
 ] as const;
@@ -118,79 +155,86 @@ export const SERVICES = [
 export const TESTIMONIALS = [
   {
     quote:
-      "They understood the light in our apartment before they understood us. Every room now feels inevitable.",
-    name: "Amara Silveira",
-    role: "Private residence, Cascais",
-    initials: "AS",
+      "The way Hamza, the owner, replicates the design and turns a home into a living paradise, I can vouch for him and recommend his expertise forever. The best designer in Karachi.",
+    name: "Verified Client",
+    role: "Google Review",
+    initials: "GR",
     rating: 5,
   },
   {
     quote:
-      "Restrained, precise and completely unhurried. The joinery detailing alone was worth the commission.",
-    name: "Tobias Kregel",
-    role: "Hotel owner, Porto",
-    initials: "TK",
+      "Quite satisfied with Housefied. They worked quite professionally, their work is timeless and elegant. Long way to go 👏👏",
+    name: "Verified Client",
+    role: "Google Review",
+    initials: "GR",
     rating: 5,
   },
   {
-    quote:
-      "Our flagship store finally feels like the brand. Customers stay twice as long as they used to.",
-    name: "Íris Monteiro",
-    role: "Retail founder, Lisbon",
-    initials: "IM",
+    quote: "Amazing experience.........worked with complete dedication........keep it up",
+    name: "Verified Client",
+    role: "Google Review",
+    initials: "GR",
     rating: 5,
   },
 ] as const;
 
+export const SERVICE_OPTIONS = [
+  "Luxury Kitchen",
+  "Bespoke Bathroom",
+  "Custom Wardrobes",
+  "TV Wall/Lounge",
+  "Full Home Turnkey",
+] as const;
+
 export const FAQS = [
   {
-    question: "How does a project with your studio begin?",
+    question: "How does a project with HOUSEFIED begin?",
     answer:
-      "Every commission opens with a consultation at your space or at our Lisbon atelier. We discuss how you live, review the architecture and light, and return within two weeks with a concept direction and a fee proposal.",
+      "Every project starts with a free consultation at your site or at our Bahadurabad office. We measure the space, understand how you want to live in it, and return with a design direction and a transparent scope and cost breakdown.",
   },
   {
-    question: "What is the typical timeline?",
+    question: "Do you handle execution as well as design?",
     answer:
-      "A single-room refresh runs six to ten weeks. A full residence, including joinery and bespoke furniture, generally takes five to nine months from concept to installation.",
+      "Yes — HOUSEFIED is a complete turnkey studio. We direct carpentry, electrical, stone, paint and finishing teams ourselves, so one team is accountable from drawing to handover.",
   },
   {
-    question: "Do you take projects outside Portugal?",
+    question: "Which areas of Karachi do you work in?",
     answer:
-      "Yes. Roughly a third of our work is international, mainly across Spain, France and Morocco. Travel and site supervision are quoted transparently per project.",
+      "We work across Karachi, from Bahadurabad and Adamjee Nagar to DHA, Clifton, Bath Island and Gulshan, and we take selected projects in other cities.",
   },
   {
-    question: "Can you work with our existing furniture?",
+    question: "How long does a full home take?",
     answer:
-      "Often, and gladly. We audit what you own, keep the pieces with character, and design around them so the result feels collected rather than bought.",
+      "A single kitchen or TV wall typically runs four to eight weeks. A newly constructed full home, including wardrobes and bathrooms, generally takes three to six months depending on scope.",
   },
   {
-    question: "How is your fee structured?",
+    question: "Can you work within a set budget?",
     answer:
-      "A fixed design fee based on scope and area, followed by transparent procurement at trade cost. You always see the full breakdown before anything is ordered.",
+      "Absolutely. We plan material grades against your budget up front, show you the options honestly, and never begin ordering before you approve the breakdown.",
   },
 ] as const;
 
 export const FOOTER_LINKS = [
   {
     heading: "Company",
-    links: ["Our Story", "The Atelier", "Careers", "Press", "Journal"],
+    links: ["About HOUSEFIED", "Our Process", "The Team", "Reviews", "Careers"],
   },
   {
     heading: "Services",
     links: [
-      "Interior Design",
-      "Architectural Styling",
-      "Bespoke Furniture",
-      "Art Curation",
-      "Consultation",
+      "Luxury Kitchens",
+      "Modern TV Walls",
+      "Bespoke Bathrooms",
+      "Smart Wardrobes",
+      "Full Home Turnkey",
     ],
   },
   {
     heading: "Projects",
-    links: ["Residential", "Retail", "Hospitality", "Archive", "Awards"],
+    links: ["Residential", "Commercial", "Turnkey", "Newly Built Homes", "Archive"],
   },
   {
     heading: "Social",
-    links: ["Instagram", "Pinterest", "LinkedIn", "Behance"],
+    links: ["Facebook — Housefied Karachi", "Instagram — @housefied", "WhatsApp Helpline"],
   },
 ] as const;

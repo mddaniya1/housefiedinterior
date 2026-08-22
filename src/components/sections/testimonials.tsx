@@ -16,7 +16,7 @@ export function Testimonials() {
 
         <ul className="mt-14 grid gap-4 lg:grid-cols-3">
           {TESTIMONIALS.map((item, index) => (
-            <Reveal as="li" key={item.name} delay={index * 0.08}>
+            <Reveal as="li" key={item.quote} delay={index * 0.08}>
               <figure className="flex h-full flex-col justify-between rounded-[2rem] bg-card p-8 shadow-soft lg:p-10">
                 <div>
                   <div className="flex gap-1" aria-label={`${item.rating} out of 5 stars`}>

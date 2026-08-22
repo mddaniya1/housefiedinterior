@@ -11,7 +11,7 @@ export function AboutStudio() {
         <ImageReveal className="overflow-hidden rounded-[2rem] lg:col-span-6">
           <img
             src={IMAGES.aboutStudio}
-            alt="Arched doorway with linen drapes and an oak bench inside the studio"
+            alt="Warm, minimal Karachi interior with custom joinery by HOUSEFIED"
             width={1200}
             height={1400}
             loading="lazy"
@@ -21,22 +21,22 @@ export function AboutStudio() {
 
         <div className="lg:col-span-5 lg:col-start-8">
           <Reveal>
-            <p className="eyebrow">Elegance · Timeless</p>
+            <p className="eyebrow">Elegance · Timeless · Karachi</p>
             <h2 id="about-heading" className="display-lg mt-6 max-w-[16ch]">
-              A studio built on restraint
+              A studio built on execution
             </h2>
             <p className="mt-8 max-w-prose text-base leading-relaxed text-muted-foreground">
-              Founded in Lisbon in 2010, our atelier of twelve designers and makers works on a
-              deliberately small number of commissions each year. We begin with the light, draw the
-              joinery ourselves, and stay on site until the last hinge is right.
+              Led by Hamza from our Bahadurabad office, HOUSEFIED designs and executes elite
+              residential and commercial interiors across Karachi. We draw the joinery ourselves,
+              direct every trade on site, and stay until the last hinge closes correctly.
             </p>
             <p className="mt-4 max-w-prose text-base leading-relaxed text-muted-foreground">
-              The result is interiors that feel collected over decades — warm, quiet and entirely
-              yours.
+              With 50+ completed homes and a perfect 5.0 Google rating, our work is judged on one
+              thing: whether the finished space feels like a living paradise.
             </p>
             <Button asChild size="lg" className="mt-10 rounded-full px-7">
               <a href="#services">
-                About the atelier
+                Explore our services
                 <ArrowUpRight className="size-4" />
               </a>
             </Button>

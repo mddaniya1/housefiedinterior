@@ -3,22 +3,24 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 import { ArrowUpRight } from "lucide-react";
-import { BRAND, IMAGES } from "@/constants/site";
+import { BRAND, IMAGES, SERVICE_OPTIONS } from "@/constants/site";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ImageReveal, Reveal } from "@/components/motion/reveal";
 
 const consultationSchema = z.object({
   name: z.string().min(2, "Please tell us your name."),
-  email: z.string().email("Enter a valid email address."),
-  project: z.string().min(10, "A sentence or two about the space, please."),
+  phone: z
+    .string()
+    .min(9, "Enter a valid phone number.")
+    .regex(/^[+0-9\s()-]+$/, "Digits, spaces and + only."),
+  service: z.enum(SERVICE_OPTIONS, { message: "Please choose a service." }),
 });
 
 type ConsultationValues = z.infer<typeof consultationSchema>;
 
-/** Dark contact section with large typography, luxury image and booking form. */
+/** Dark contact section with large typography, luxury image and lead capture form. */
 export function ContactCta() {
   const {
     register,
@@ -27,14 +29,14 @@ export function ContactCta() {
     formState: { errors, isSubmitting },
   } = useForm<ConsultationValues>({
     resolver: zodResolver(consultationSchema),
-    defaultValues: { name: "", email: "", project: "" },
+    defaultValues: { name: "", phone: "" },
   });
 
   const onSubmit = async (values: ConsultationValues) => {
     // No backend yet — acknowledge locally so the form stays honest.
     await new Promise((resolve) => setTimeout(resolve, 500));
     toast.success("Request received", {
-      description: `Thank you, ${values.name}. We'll reply within two working days.`,
+      description: `Thank you, ${values.name}. Our team will call you about your ${values.service.toLowerCase()} project.`,
     });
     reset();
   };
@@ -45,30 +47,35 @@ export function ContactCta() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
             <Reveal>
-              <p className="eyebrow text-ink-foreground/60">Book a consultation</p>
-              <h2 id="contact-heading" className="display-lg mt-6 max-w-[16ch]">
-                Let’s begin the conversation.
+              <p className="eyebrow text-ink-foreground/60">Book a free consultation</p>
+              <h2 id="contact-heading" className="display-lg mt-6 max-w-[18ch]">
+                Let’s turn your home into a living paradise.
               </h2>
               <p className="mt-8 max-w-prose text-sm leading-relaxed text-ink-foreground/70">
-                Tell us about the space, the light and how you want to live in it. We take on a
-                limited number of commissions each season so every project receives the studio’s
-                full attention.
+                Share your plan, your space or simply your idea. We take on a limited number of
+                turnkey projects at a time so every home receives Hamza’s full attention from
+                drawing to handover.
               </p>
 
               <dl className="mt-10 grid gap-6 sm:grid-cols-2">
                 <div>
-                  <dt className="eyebrow text-ink-foreground/50">Atelier</dt>
+                  <dt className="eyebrow text-ink-foreground/50">Office</dt>
                   <dd className="mt-2 text-sm text-ink-foreground/80">
                     {BRAND.address.street}
                     <br />
-                    {BRAND.address.postalCode} {BRAND.address.city}
+                    {BRAND.address.city} {BRAND.address.postalCode}
                   </dd>
                 </div>
                 <div>
                   <dt className="eyebrow text-ink-foreground/50">Contact</dt>
                   <dd className="mt-2 text-sm text-ink-foreground/80">
-                    <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`} className="hover:underline">
-                      {BRAND.phone}
+                    <a
+                      href={BRAND.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                    >
+                      {BRAND.phone} (WhatsApp)
                     </a>
                     <br />
                     <a href={`mailto:${BRAND.email}`} className="hover:underline">
@@ -76,13 +83,21 @@ export function ContactCta() {
                     </a>
                   </dd>
                 </div>
+                <div>
+                  <dt className="eyebrow text-ink-foreground/50">Also at</dt>
+                  <dd className="mt-2 text-sm text-ink-foreground/80">{BRAND.satelliteAddress}</dd>
+                </div>
+                <div>
+                  <dt className="eyebrow text-ink-foreground/50">Hours</dt>
+                  <dd className="mt-2 text-sm text-ink-foreground/80">{BRAND.hours}</dd>
+                </div>
               </dl>
             </Reveal>
 
             <ImageReveal className="mt-12 overflow-hidden rounded-[2rem]">
               <img
                 src={IMAGES.contactDark}
-                alt="Dusk-lit lounge with deep brown sofa and city view"
+                alt="Dusk-lit lounge with warm lighting from a HOUSEFIED project"
                 width={1200}
                 height={800}
                 loading="lazy"
@@ -98,7 +113,7 @@ export function ContactCta() {
               aria-label="Consultation request"
               className="rounded-[2rem] bg-card p-8 text-card-foreground shadow-lift lg:p-10"
             >
-              <h3 className="font-display text-xl">Request a consultation</h3>
+              <h3 className="font-display text-xl">Request a free consultation</h3>
 
               <div className="mt-8 space-y-5">
                 <div className="space-y-2">
@@ -118,34 +133,46 @@ export function ContactCta() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="contact-email">Email</Label>
+                  <Label htmlFor="contact-phone">Phone number</Label>
                   <Input
-                    id="contact-email"
-                    type="email"
-                    autoComplete="email"
-                    aria-invalid={!!errors.email}
-                    aria-describedby={errors.email ? "contact-email-error" : undefined}
-                    {...register("email")}
+                    id="contact-phone"
+                    type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    placeholder="+92 3XX XXXXXXX"
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={errors.phone ? "contact-phone-error" : undefined}
+                    {...register("phone")}
                   />
-                  {errors.email && (
-                    <p id="contact-email-error" role="alert" className="text-xs text-destructive">
-                      {errors.email.message}
+                  {errors.phone && (
+                    <p id="contact-phone-error" role="alert" className="text-xs text-destructive">
+                      {errors.phone.message}
                     </p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="contact-project">About the project</Label>
-                  <Textarea
-                    id="contact-project"
-                    rows={4}
-                    aria-invalid={!!errors.project}
-                    aria-describedby={errors.project ? "contact-project-error" : undefined}
-                    {...register("project")}
-                  />
-                  {errors.project && (
-                    <p id="contact-project-error" role="alert" className="text-xs text-destructive">
-                      {errors.project.message}
+                  <Label htmlFor="contact-service">Service needed</Label>
+                  <select
+                    id="contact-service"
+                    defaultValue=""
+                    aria-invalid={!!errors.service}
+                    aria-describedby={errors.service ? "contact-service-error" : undefined}
+                    className="h-11 w-full rounded-md border border-input bg-background px-3 text-sm text-foreground outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+                    {...register("service")}
+                  >
+                    <option value="" disabled>
+                      Select a service
+                    </option>
+                    {SERVICE_OPTIONS.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.service && (
+                    <p id="contact-service-error" role="alert" className="text-xs text-destructive">
+                      {errors.service.message}
                     </p>
                   )}
                 </div>
@@ -157,7 +184,7 @@ export function ContactCta() {
                 disabled={isSubmitting}
                 className="mt-8 w-full rounded-full border border-white/30 bg-black text-white hover:bg-white hover:text-black"
               >
-                {isSubmitting ? "Sending…" : "Book consultation"}
+                {isSubmitting ? "Sending…" : "Book a Free Consultation"}
                 <ArrowUpRight className="size-4" />
               </Button>
               <p className="mt-4 text-xs text-muted-foreground">{BRAND.hours}</p>

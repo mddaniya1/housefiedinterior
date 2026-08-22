@@ -10,7 +10,7 @@ export function FeaturedDesign() {
         <ImageReveal className="relative overflow-hidden rounded-[2rem] lg:col-span-7">
           <img
             src={IMAGES.featureLounge}
-            alt="Cream sectional sofa and walnut table in a garden-facing lounge"
+            alt="Modern minimalist lounge with a sleek TV wall executed by HOUSEFIED in Karachi"
             width={1280}
             height={960}
             loading="lazy"
@@ -42,16 +42,16 @@ export function FeaturedDesign() {
               Aesthetic
             </span>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-              A palette drawn from plaster, oak and raw linen. Every piece is chosen for how it ages
-              rather than how it photographs.
+              A calm palette of warm veneer, matte stone and soft sand. Every finish is selected for
+              how it lives day after day, not just how it photographs.
             </p>
-            <h3 className="display-md mt-6 max-w-[16ch]">Into a gallery of elegance</h3>
+            <h3 className="display-md mt-6 max-w-[16ch]">Where elegance meets execution</h3>
           </Reveal>
 
           <Reveal delay={0.2} className="relative min-h-64 overflow-hidden rounded-[2rem]">
             <img
               src={IMAGES.detailChair}
-              alt="Woven rattan lounge chair on a travertine terrace"
+              alt="Custom cabinetry detail from a HOUSEFIED wardrobe project"
               width={900}
               height={1100}
               loading="lazy"
@@ -63,16 +63,16 @@ export function FeaturedDesign() {
             />
             <div className="absolute inset-x-6 top-6 lg:inset-x-8 lg:top-8">
               <span className="inline-flex rounded-full bg-card px-4 py-1.5 text-xs text-card-foreground">
-                Bespoke furniture
+                Bespoke cabinetry
               </span>
               <p className="mt-4 max-w-[18ch] font-display text-lg text-ink-foreground drop-shadow-[0_2px_14px_oklch(0.2_0_0_/_0.5)]">
-                Made for the slow hours of everyday living
+                Made to measure for the way your family lives
               </p>
             </div>
 
             <a
               href="#projects"
-              aria-label="View bespoke furniture projects"
+              aria-label="View bespoke cabinetry projects"
               className="absolute bottom-6 right-6 grid size-11 place-items-center rounded-full bg-card text-card-foreground transition-transform hover:scale-105 lg:bottom-8 lg:right-8"
             >
               <ArrowUpRight className="size-4" />

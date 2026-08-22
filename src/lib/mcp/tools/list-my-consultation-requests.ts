@@ -5,7 +5,7 @@ import { supabaseForUser } from "../supabase";
 export default defineTool({
   name: "list_my_consultation_requests",
   title: "List my consultation requests",
-  description: "List the consultation enquiries the signed-in user has sent to Lumen & Oak.",
+  description: "List the consultation enquiries the signed-in user has sent to HOUSEFIED.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async (_input, ctx) => {
