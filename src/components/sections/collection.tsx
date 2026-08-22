@@ -15,8 +15,8 @@ export function Collection() {
           </h2>
           <div className="max-w-md lg:text-right">
             <p className="text-sm leading-relaxed text-muted-foreground">
-              A selection of recent interiors across Portugal — private homes, quiet hotels and
-              retail spaces shaped by natural material and long light.
+              The four specialities HOUSEFIED is known for across Karachi — designed, produced and
+              executed end to end by our own teams.
             </p>
             <Button asChild size="lg" className="mt-6 rounded-full px-6">
               <a href="#projects">View more</a>
@@ -35,7 +35,7 @@ export function Collection() {
               >
                 <img
                   src={item.image}
-                  alt={`${item.name} interior in ${item.place}`}
+                  alt={`${item.name} — ${item.place}`}
                   loading="lazy"
                   className="size-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]"
                 />
@@ -46,7 +46,7 @@ export function Collection() {
                 <div className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-4">
                   <div>
                     <h3 className="font-display text-lg text-ink-foreground">{item.name}</h3>
-                    <p className="text-xs text-ink-foreground/70">{item.place}</p>
+                    <p className="mt-1 max-w-[30ch] text-xs text-ink-foreground/75">{item.place}</p>
                   </div>
                   <span
                     aria-hidden="true"
