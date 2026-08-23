@@ -1,4 +1,4 @@
-import { BRAND, FOOTER_LINKS } from "@/constants/site";
+import { BRAND, FOOTER_LINKS, LOGO } from "@/constants/site";
 
 /** Premium footer with link columns and oversized wordmark. */
 export function SiteFooter() {
