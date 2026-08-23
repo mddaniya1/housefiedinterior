@@ -25,6 +25,14 @@ export function SiteFooter() {
           ))}
 
           <address className="not-italic">
+            <img
+              src={LOGO.src}
+              alt={LOGO.alt}
+              width={LOGO.width}
+              height={LOGO.height}
+              className="mb-6 h-16 w-auto object-contain lg:h-20"
+              loading="lazy"
+            />
             <h2 className="text-sm font-medium">Contact</h2>
             <ul className="mt-5 space-y-3 text-sm text-ink-foreground/60">
               <li>
