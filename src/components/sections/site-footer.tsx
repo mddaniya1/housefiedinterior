@@ -30,7 +30,7 @@ export function SiteFooter() {
               alt={LOGO.alt}
               width={LOGO.width}
               height={LOGO.height}
-              className="mb-6 h-16 w-auto object-contain lg:h-20"
+              className="mb-8 h-20 w-auto object-contain lg:h-28"
               loading="lazy"
             />
             <h2 className="text-sm font-medium">Contact</h2>
@@ -61,7 +61,7 @@ export function SiteFooter() {
             alt={LOGO.alt}
             width={LOGO.width}
             height={LOGO.height}
-            className="h-14 w-auto object-contain opacity-90 lg:h-20"
+            className="h-16 w-auto object-contain opacity-90 lg:h-24"
             loading="lazy"
           />
         </div>

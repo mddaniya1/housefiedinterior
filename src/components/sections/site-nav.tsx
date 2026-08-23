@@ -35,7 +35,7 @@ export function SiteNav() {
             alt={LOGO.alt}
             width={LOGO.width}
             height={LOGO.height}
-            className="h-10 w-auto object-contain transition-opacity duration-300 hover:opacity-80 lg:h-12"
+            className="h-12 w-auto object-contain transition-opacity duration-300 hover:opacity-80 lg:h-16"
             loading="eager"
           />
         </a>
