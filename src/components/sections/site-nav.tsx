@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { BRAND, NAV_LINKS } from "@/constants/site";
+import { BRAND, LOGO, NAV_LINKS } from "@/constants/site";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
