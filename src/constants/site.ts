@@ -22,6 +22,13 @@ export const IMAGES = {
   contactDark,
 };
 
+export const LOGO = {
+  src: "/images/housefied-logo.png",
+  alt: `${BRAND.name} logo`,
+  width: 240,
+  height: 80,
+};
+
 export const BRAND = {
   name: "HOUSEFIED",
   owner: "Hamza",
