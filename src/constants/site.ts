@@ -24,7 +24,7 @@ export const IMAGES = {
 
 export const LOGO = {
   src: "/images/housefied-logo.png",
-  alt: `${BRAND.name} logo`,
+  alt: "HOUSEFIED logo",
   width: 240,
   height: 80,
 };
