@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { BRAND, NAV_LINKS } from "@/constants/site";
+import { BRAND, LOGO, NAV_LINKS } from "@/constants/site";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -27,10 +27,17 @@ export function SiteNav() {
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 lg:px-10">
         <a
           href="#home"
-          className="font-display text-lg font-semibold tracking-tight text-foreground"
+          className="flex shrink-0 items-center"
           aria-label={`${BRAND.name} — home`}
         >
-          {BRAND.name}
+          <img
+            src={LOGO.src}
+            alt={LOGO.alt}
+            width={LOGO.width}
+            height={LOGO.height}
+            className="h-10 w-auto object-contain transition-opacity duration-300 hover:opacity-80 lg:h-12"
+            loading="eager"
+          />
         </a>
 
         <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">

@@ -1,4 +1,4 @@
-import { BRAND, FOOTER_LINKS } from "@/constants/site";
+import { BRAND, FOOTER_LINKS, LOGO } from "@/constants/site";
 
 /** Premium footer with link columns and oversized wordmark. */
 export function SiteFooter() {
@@ -25,6 +25,14 @@ export function SiteFooter() {
           ))}
 
           <address className="not-italic">
+            <img
+              src={LOGO.src}
+              alt={LOGO.alt}
+              width={LOGO.width}
+              height={LOGO.height}
+              className="mb-6 h-16 w-auto object-contain lg:h-20"
+              loading="lazy"
+            />
             <h2 className="text-sm font-medium">Contact</h2>
             <ul className="mt-5 space-y-3 text-sm text-ink-foreground/60">
               <li>
@@ -48,9 +56,14 @@ export function SiteFooter() {
           <p className="text-xs text-ink-foreground/50">
             © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
           </p>
-          <p className="font-display text-4xl font-semibold tracking-tight lg:text-6xl">
-            {BRAND.name}
-          </p>
+          <img
+            src={LOGO.src}
+            alt={LOGO.alt}
+            width={LOGO.width}
+            height={LOGO.height}
+            className="h-14 w-auto object-contain opacity-90 lg:h-20"
+            loading="lazy"
+          />
         </div>
       </div>
     </footer>
