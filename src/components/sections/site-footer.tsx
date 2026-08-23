@@ -56,9 +56,14 @@ export function SiteFooter() {
           <p className="text-xs text-ink-foreground/50">
             © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
           </p>
-          <p className="font-display text-4xl font-semibold tracking-tight lg:text-6xl">
-            {BRAND.name}
-          </p>
+          <img
+            src={LOGO.src}
+            alt={LOGO.alt}
+            width={LOGO.width}
+            height={LOGO.height}
+            className="h-14 w-auto object-contain opacity-90 lg:h-20"
+            loading="lazy"
+          />
         </div>
       </div>
     </footer>
