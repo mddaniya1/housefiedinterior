@@ -179,13 +179,18 @@ export function ContactCta() {
               </div>
 
               <Button
-                type="submit"
+                asChild
                 size="lg"
-                disabled={isSubmitting}
                 className="mt-8 w-full rounded-full border border-white/30 bg-black text-white hover:bg-white hover:text-black"
               >
-                {isSubmitting ? "Sending…" : "Book a Free Consultation"}
-                <ArrowUpRight className="size-4" />
+                <a
+                  href="https://wa.me/923394122544?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20for%20my%20interior%20design%20project."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book a Free Consultation
+                  <ArrowUpRight className="size-4" />
+                </a>
               </Button>
               <p className="mt-4 text-xs text-muted-foreground">{BRAND.hours}</p>
             </form>
