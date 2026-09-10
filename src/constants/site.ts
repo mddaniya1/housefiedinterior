@@ -53,6 +53,9 @@ export const BRAND = {
   ],
 } as const;
 
+export const WHATSAPP_BOOKING_URL =
+  "https://wa.me/923394122544?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20for%20my%20interior%20design%20project.";
+
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
