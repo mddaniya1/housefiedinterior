@@ -63,9 +63,10 @@
             "category": {
               "type": "string",
               "enum": [
-                "Residential",
-                "Commercial",
-                "Turnkey"
+                "Kitchens",
+                "Interiors",
+                "Wardrobes",
+                "Bathrooms"
               ],
               "description": "Optional project category filter."
             }
