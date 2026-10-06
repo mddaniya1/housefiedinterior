@@ -56,13 +56,12 @@ export const BRAND = {
 export const WHATSAPP_BOOKING_URL =
   "https://wa.me/923394122544?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20for%20my%20interior%20design%20project.";
 
-export const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
-] as const;
+/** Social profile links — replace these placeholder URLs with the real profiles. */
+export const SOCIAL_LINKS = {
+  facebook: "https://facebook.com/your-page",
+  instagram: "https://instagram.com/your-handle",
+  whatsapp: "https://wa.me/923394122544",
+} as const;
 
 export const HERO = {
   heading: "Turning Homes into a Living Paradise",
@@ -105,23 +104,63 @@ export const COLLECTION = [
   },
 ] as const;
 
-export const PROJECT_CATEGORIES = ["All", "Residential", "Commercial", "Turnkey"] as const;
+export const PROJECT_GROUPS = [
+  { slug: "kitchens", label: "Kitchens" },
+  { slug: "interiors", label: "Interiors" },
+  { slug: "wardrobes", label: "Wardrobes" },
+  { slug: "bathrooms", label: "Bathrooms" },
+] as const;
+
+export const PROJECT_CATEGORIES = ["All", "Kitchens", "Interiors", "Wardrobes", "Bathrooms"] as const;
 
 export type ProjectCategory = (typeof PROJECT_CATEGORIES)[number];
 
-export const PROJECTS: {
+export type Project = {
+  slug: string;
   name: string;
   category: Exclude<ProjectCategory, "All">;
+  categorySlug: string;
+  location: string;
   year: string;
   image: string;
-}[] = [
-  { name: "Bahadurabad Kitchen", category: "Residential", year: "2025", image: project1 },
-  { name: "Adamjee Nagar Lounge", category: "Residential", year: "2025", image: project2 },
-  { name: "DHA Phase VI Bathroom", category: "Residential", year: "2024", image: project3 },
-  { name: "Clifton Wardrobe Suite", category: "Turnkey", year: "2024", image: project4 },
-  { name: "Gulshan Corporate Floor", category: "Commercial", year: "2024", image: project5 },
-  { name: "Bath Island Full Home", category: "Turnkey", year: "2023", image: featureLounge },
+  description: string;
+  gallery: string[];
+};
+
+export const PROJECTS: Project[] = [
+  { slug: "bahadurabad-kitchen", name: "Bahadurabad Kitchen", category: "Kitchens", categorySlug: "kitchens", location: "Bahadurabad, Karachi", year: "2025", image: project1, description: "A warm, handle-less kitchen with imported soft-close hardware, a seamless quartz island and integrated appliances planned around daily family cooking.", gallery: [project1, detailChair, featureLounge] },
+  { slug: "dha-family-kitchen", name: "DHA Family Kitchen", category: "Kitchens", categorySlug: "kitchens", location: "DHA Phase VI, Karachi", year: "2024", image: project5, description: "Full kitchen renewal with tall pantry storage, concealed lighting and durable matte lacquer finishes.", gallery: [project5, project1, aboutStudio] },
+  { slug: "adamjee-nagar-lounge", name: "Adamjee Nagar Lounge", category: "Interiors", categorySlug: "interiors", location: "Adamjee Nagar, Karachi", year: "2025", image: project2, description: "A calm lounge anchored by a fluted TV wall with concealed cabling, warm wood panelling and layered lighting.", gallery: [project2, featureLounge, heroLiving] },
+  { slug: "bath-island-full-home", name: "Bath Island Full Home", category: "Interiors", categorySlug: "interiors", location: "Bath Island, Karachi", year: "2023", image: featureLounge, description: "Turnkey execution of a newly built home — living, dining and bedrooms designed, procured and installed by one team.", gallery: [featureLounge, heroLiving, aboutStudio] },
+  { slug: "clifton-wardrobe-suite", name: "Clifton Wardrobe Suite", category: "Wardrobes", categorySlug: "wardrobes", location: "Clifton, Karachi", year: "2024", image: project4, description: "Floor-to-ceiling wardrobes with intelligent internals, glass display shelving and soft-close motion throughout.", gallery: [project4, detailChair, aboutStudio] },
+  { slug: "gulshan-master-closet", name: "Gulshan Master Closet", category: "Wardrobes", categorySlug: "wardrobes", location: "Gulshan-e-Iqbal, Karachi", year: "2024", image: aboutStudio, description: "A walk-in master closet with island drawers, mirrored panels and quiet linear lighting.", gallery: [aboutStudio, project4, detailChair] },
+  { slug: "dha-spa-bathroom", name: "DHA Spa Bathroom", category: "Bathrooms", categorySlug: "bathrooms", location: "DHA Phase VI, Karachi", year: "2024", image: project3, description: "Stone, brass and soft light combined into a private spa-like bathroom with a frameless walk-in shower.", gallery: [project3, detailChair, heroLiving] },
+  { slug: "pechs-guest-bathroom", name: "PECHS Guest Bathroom", category: "Bathrooms", categorySlug: "bathrooms", location: "PECHS, Karachi", year: "2023", image: detailChair, description: "A compact guest bathroom made generous with large-format tiles, a floating vanity and premium fittings.", gallery: [detailChair, project3, aboutStudio] },
 ];
+
+export const CORE_AREAS = [
+  { slug: "luxury-kitchens", title: "Luxury Kitchens", summary: "Imported hardware, seamless counters and precise joinery for culinary spaces built to last.", body: "Smart, stylish and highly functional culinary spaces. We plan layouts around how you actually cook, specify imported soft-close hardware, and build every cabinet with precise joinery and durable finishes.", images: [project1, project5, detailChair] },
+  { slug: "tv-walls-lounges", title: "Modern TV Walls & Lounges", summary: "Elegant media walls, concealed cabling and lounge layouts that anchor the whole living area.", body: "Timeless and elegant living area entertainment centers. Fluted panels, stone, concealed cabling and layered lighting come together into a wall that anchors the whole room.", images: [project2, featureLounge, heroLiving] },
+  { slug: "bespoke-bathrooms", title: "Bespoke Bathrooms", summary: "Stone, brass and light detailed together for bathrooms that feel like a private spa.", body: "Where luxury meets comfort and premium hardware. We detail stone, fittings, waterproofing and lighting together so the finished bathroom feels like a private spa — and lasts.", images: [project3, detailChair, aboutStudio] },
+  { slug: "smart-wardrobes-cabinetry", title: "Smart Wardrobes & Cabinetry", summary: "Made-to-measure wardrobes with intelligent internals, soft-close motion and quiet finishes.", body: "Organized, elevated and custom storage design. Every wardrobe is made to measure with intelligent internals, soft-close motion and finishes chosen to match the room.", images: [project4, aboutStudio, detailChair] },
+  { slug: "full-home-turnkey", title: "Full Home Turnkey", summary: "Design, procurement and on-site direction of every trade — handed over ready to live in.", body: "From the first survey to the final handover, one team designs, procures and directs carpentry, electrical, stone, paint and finishing — so your home is delivered ready to live in.", images: [featureLounge, heroLiving, project2] },
+] as const;
+
+export const STANDARDS = [
+  { title: "Imported hardware", text: "Soft-close hinges, runners and fittings from trusted international brands — chosen for years of daily use." },
+  { title: "Precise joinery", text: "Every cabinet and panel is drawn, cut and assembled to exact measurements for clean lines and tight seams." },
+  { title: "Quality materials", text: "Moisture-resistant boards, durable lacquers, natural stone and premium finishes — never shortcuts." },
+  { title: "On-site supervision", text: "Our team directs every trade on site daily, so quality is checked while the work happens, not after." },
+  { title: "Clean handover", text: "We snag, clean and walk you through every detail before handing over the keys to a ready home." },
+] as const;
+
+export const PROCESS_STEPS = [
+  { title: "Project Survey", text: "We visit your space, take measurements and understand how you want to live." },
+  { title: "Design Concepts", text: "Layouts, 3D views and material direction tailored to your taste and budget." },
+  { title: "Finishes & Furnishing", text: "We finalise materials, hardware, colours and furniture together with you." },
+  { title: "Procurement", text: "We source and order everything from trusted suppliers, on schedule." },
+  { title: "Delivery & Installation", text: "Our team installs, supervises and hands over a finished, ready-to-live space." },
+] as const;
 
 export const SERVICES = [
   {
@@ -224,27 +263,21 @@ export const FAQS = [
   },
 ] as const;
 
-export const FOOTER_LINKS = [
+export const FOOTER_LINKS: { heading: string; links: { label: string; to: string; params?: Record<string, string> }[] }[] = [
   {
     heading: "Company",
-    links: ["About HOUSEFIED", "Our Process", "The Team", "Reviews", "Careers"],
-  },
-  {
-    heading: "Services",
     links: [
-      "Luxury Kitchens",
-      "Modern TV Walls",
-      "Bespoke Bathrooms",
-      "Smart Wardrobes",
-      "Full Home Turnkey",
+      { label: "Who We Are", to: "/who-we-are" },
+      { label: "Our Standards", to: "/our-standards" },
+      { label: "Contact Us", to: "/contact" },
     ],
   },
   {
-    heading: "Projects",
-    links: ["Residential", "Commercial", "Turnkey", "Newly Built Homes", "Archive"],
+    heading: "Core Areas",
+    links: CORE_AREAS.map((c) => ({ label: c.title, to: "/core-areas/$slug", params: { slug: c.slug } })),
   },
   {
-    heading: "Social",
-    links: ["Facebook — Housefied Karachi", "Instagram — @housefied", "WhatsApp Helpline"],
+    heading: "Projects",
+    links: PROJECT_GROUPS.map((g) => ({ label: g.label, to: "/projects/$category", params: { category: g.slug } })),
   },
-] as const;
+];
