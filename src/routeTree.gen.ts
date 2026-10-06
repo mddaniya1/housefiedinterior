@@ -10,16 +10,27 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as McpRouteImport } from './routes/mcp'
+import { Route as OurStandardsRouteImport } from './routes/our-standards'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as CoreAreasSlugRouteImport } from './routes/core-areas.$slug'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
+import { Route as ProjectsCategoryIndexRouteImport } from './routes/projects.$category.index'
+import { Route as ProjectsCategorySlugRouteImport } from './routes/projects.$category.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const McpRoute = McpRouteImport.update({
@@ -27,9 +38,19 @@ const McpRoute = McpRouteImport.update({
   path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OurStandardsRoute = OurStandardsRouteImport.update({
+  id: '/our-standards',
+  path: '/our-standards',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhoWeAreRoute = WhoWeAreRouteImport.update({
+  id: '/who-we-are',
+  path: '/who-we-are',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Char91DotmcpChar93ListToolsRoute =
@@ -44,6 +65,11 @@ const Char91DotwellKnownChar93OauthProtectedResourceRoute =
     path: '/.well-known/oauth-protected-resource',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CoreAreasSlugRoute = CoreAreasSlugRouteImport.update({
+  id: '/core-areas/$slug',
+  path: '/core-areas/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
   id: '/.lovable/oauth/consent',
   path: '/.lovable/oauth/consent',
@@ -55,73 +81,125 @@ const Char91DotmcpChar93InvokeToolToolRoute =
     path: '/.mcp/invoke-tool/$tool',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProjectsCategoryIndexRoute = ProjectsCategoryIndexRouteImport.update({
+  id: '/projects/$category/',
+  path: '/projects/$category/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsCategorySlugRoute = ProjectsCategorySlugRouteImport.update({
+  id: '/projects/$category/$slug',
+  path: '/projects/$category/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/mcp': typeof McpRoute
+  '/our-standards': typeof OurStandardsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/who-we-are': typeof WhoWeAreRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/core-areas/$slug': typeof CoreAreasSlugRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
+  '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
+  '/projects/$category/': typeof ProjectsCategoryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/mcp': typeof McpRoute
+  '/our-standards': typeof OurStandardsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/who-we-are': typeof WhoWeAreRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/core-areas/$slug': typeof CoreAreasSlugRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
+  '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
+  '/projects/$category': typeof ProjectsCategoryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/mcp': typeof McpRoute
+  '/our-standards': typeof OurStandardsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/who-we-are': typeof WhoWeAreRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/core-areas/$slug': typeof CoreAreasSlugRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
+  '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
+  '/projects/$category/': typeof ProjectsCategoryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/contact'
     | '/mcp'
+    | '/our-standards'
     | '/sitemap.xml'
+    | '/who-we-are'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/core-areas/$slug'
     | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
+    | '/projects/$category/$slug'
+    | '/projects/$category/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/contact'
     | '/mcp'
+    | '/our-standards'
     | '/sitemap.xml'
+    | '/who-we-are'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/core-areas/$slug'
     | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
+    | '/projects/$category/$slug'
+    | '/projects/$category'
   id:
     | '__root__'
     | '/'
+    | '/contact'
     | '/mcp'
+    | '/our-standards'
     | '/sitemap.xml'
+    | '/who-we-are'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/core-areas/$slug'
     | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
+    | '/projects/$category/$slug'
+    | '/projects/$category/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
   McpRoute: typeof McpRoute
+  OurStandardsRoute: typeof OurStandardsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WhoWeAreRoute: typeof WhoWeAreRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  CoreAreasSlugRoute: typeof CoreAreasSlugRoute
   DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
+  ProjectsCategorySlugRoute: typeof ProjectsCategorySlugRoute
+  ProjectsCategoryIndexRoute: typeof ProjectsCategoryIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -133,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mcp': {
       id: '/mcp'
       path: '/mcp'
@@ -140,11 +225,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/our-standards': {
+      id: '/our-standards'
+      path: '/our-standards'
+      fullPath: '/our-standards'
+      preLoaderRoute: typeof OurStandardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/who-we-are': {
+      id: '/who-we-are'
+      path: '/who-we-are'
+      fullPath: '/who-we-are'
+      preLoaderRoute: typeof WhoWeAreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/.mcp/list-tools': {
@@ -161,6 +260,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/core-areas/$slug': {
+      id: '/core-areas/$slug'
+      path: '/core-areas/$slug'
+      fullPath: '/core-areas/$slug'
+      preLoaderRoute: typeof CoreAreasSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/.lovable/oauth/consent': {
       id: '/.lovable/oauth/consent'
       path: '/.lovable/oauth/consent'
@@ -175,18 +281,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/$category/': {
+      id: '/projects/$category/'
+      path: '/projects/$category'
+      fullPath: '/projects/$category/'
+      preLoaderRoute: typeof ProjectsCategoryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$category/$slug': {
+      id: '/projects/$category/$slug'
+      path: '/projects/$category/$slug'
+      fullPath: '/projects/$category/$slug'
+      preLoaderRoute: typeof ProjectsCategorySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
   McpRoute: McpRoute,
+  OurStandardsRoute: OurStandardsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WhoWeAreRoute: WhoWeAreRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
+  CoreAreasSlugRoute: CoreAreasSlugRoute,
   DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
+  ProjectsCategorySlugRoute: ProjectsCategorySlugRoute,
+  ProjectsCategoryIndexRoute: ProjectsCategoryIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
