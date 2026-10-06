@@ -1,6 +1,7 @@
 import { Armchair, Compass, Frame, HardHat, MessageSquare, Ruler } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { SERVICES } from "@/constants/site";
+import { Link } from "@tanstack/react-router";
+import { CORE_AREAS, SERVICES } from "@/constants/site";
 import { Reveal } from "@/components/motion/reveal";
 
 const ICONS: Record<string, LucideIcon> = {
@@ -31,8 +32,14 @@ export function Services() {
         <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, index) => {
             const Icon = ICONS[service.icon] ?? Compass;
+            const area = CORE_AREAS[index];
             return (
               <Reveal as="li" key={service.title} delay={index * 0.06}>
+                <Link
+                  to={area ? "/core-areas/$slug" : "/contact"}
+                  params={area ? { slug: area.slug } : {}}
+                  className="block h-full"
+                >
                 <article className="group h-full rounded-[2rem] bg-card p-8 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-lift lg:p-10">
                   <span
                     aria-hidden="true"
@@ -45,6 +52,7 @@ export function Services() {
                     {service.description}
                   </p>
                 </article>
+                </Link>
               </Reveal>
             );
           })}

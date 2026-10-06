@@ -2,23 +2,21 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { BRAND, FAQS } from "@/constants/site";
-import { SiteNav } from "@/components/sections/site-nav";
 import { Hero } from "@/components/sections/hero";
 import { FeaturedDesign } from "@/components/sections/featured-design";
 import { Stats } from "@/components/sections/stats";
-import { AboutStudio } from "@/components/sections/about-studio";
+import { HowWeWork } from "@/components/sections/how-we-work";
 import { Collection } from "@/components/sections/collection";
 import { Services } from "@/components/sections/services";
 import { ProjectShowcase } from "@/components/sections/project-showcase";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Faq } from "@/components/sections/faq";
 import { ContactCta } from "@/components/sections/contact-cta";
-import { SiteFooter } from "@/components/sections/site-footer";
 import { EASE } from "@/components/motion/reveal";
 
-const TITLE = `${BRAND.name} — Luxury Interior Design Studio in Lisbon`;
+const TITLE = "HOUSEFIED, Interior Design & Turnkey Execution in Karachi";
 const DESCRIPTION =
-  "Lumen & Oak is a Lisbon interior design atelier creating calm, light-led homes: residential interiors, architectural styling and bespoke furniture.";
+  "HOUSEFIED, Interior Design & Turnkey Execution in Karachi — luxury kitchens, TV walls, bespoke bathrooms, smart wardrobes and full home turnkey projects.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,10 +26,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://housefiedinterior.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://housefiedinterior.lovable.app/" }],
   }),
   component: HomePage,
 });
@@ -61,8 +59,7 @@ const STRUCTURED_DATA = JSON.stringify({
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-        { "@type": "ListItem", position: 2, name: "Projects", item: "/#projects" },
-        { "@type": "ListItem", position: 3, name: "Services", item: "/#services" },
+        
       ],
     },
     {
@@ -118,7 +115,6 @@ function HomePage() {
         dangerouslySetInnerHTML={{ __html: STRUCTURED_DATA }}
       />
       <LoadingCurtain />
-      <SiteNav />
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -127,15 +123,14 @@ function HomePage() {
         <Hero />
         <FeaturedDesign />
         <Stats />
-        <AboutStudio />
         <Collection />
         <Services />
         <ProjectShowcase />
+        <HowWeWork />
         <Testimonials />
         <Faq />
         <ContactCta />
       </motion.main>
-      <SiteFooter />
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import { WHATSAPP_BOOKING_URL } from "@/constants/site";
+import { openWhatsAppBooking } from "@/lib/whatsapp";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
@@ -60,7 +62,8 @@ export function Hero() {
                   className="mt-6 rounded-full bg-card px-6 text-card-foreground hover:bg-card/90"
                 >
                   <a
-                    href="https://wa.me/923394122544?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20for%20my%20interior%20design%20project."
+                    href={WHATSAPP_BOOKING_URL}
+                onClick={openWhatsAppBooking}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
