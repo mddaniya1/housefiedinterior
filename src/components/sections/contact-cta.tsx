@@ -1,3 +1,5 @@
+import { WHATSAPP_BOOKING_URL } from "@/constants/site";
+import { openWhatsAppBooking } from "@/lib/whatsapp";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -184,7 +186,8 @@ export function ContactCta() {
                 className="mt-8 w-full rounded-full border border-white/30 bg-black text-white hover:bg-white hover:text-black"
               >
                 <a
-                  href="https://wa.me/923394122544?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20for%20my%20interior%20design%20project."
+                  href={WHATSAPP_BOOKING_URL}
+                onClick={openWhatsAppBooking}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { COLLECTION } from "@/constants/site";
 import { Button } from "@/components/ui/button";
@@ -19,7 +20,7 @@ export function Collection() {
               executed end to end by our own teams.
             </p>
             <Button asChild size="lg" className="mt-6 rounded-full px-6">
-              <a href="#projects">View more</a>
+              <Link to="/projects/$category" params={{ category: "kitchens" }}>View more</Link>
             </Button>
           </div>
         </Reveal>

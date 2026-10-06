@@ -1,3 +1,5 @@
+import { WHATSAPP_BOOKING_URL } from "@/constants/site";
+import { openWhatsAppBooking } from "@/lib/whatsapp";
 import { ArrowUpRight } from "lucide-react";
 import { IMAGES } from "@/constants/site";
 import { Button } from "@/components/ui/button";
@@ -36,7 +38,8 @@ export function AboutStudio() {
             </p>
             <Button asChild size="lg" className="mt-10 rounded-full px-7">
               <a
-                href="https://wa.me/923394122544?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20for%20my%20interior%20design%20project."
+                href={WHATSAPP_BOOKING_URL}
+                onClick={openWhatsAppBooking}
                 target="_blank"
                 rel="noopener noreferrer"
               >

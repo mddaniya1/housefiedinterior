@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { PROJECTS, PROJECT_CATEGORIES, type ProjectCategory } from "@/constants/site";
@@ -57,11 +58,12 @@ export function ProjectShowcase() {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.55, ease: EASE }}
               >
+                <Link to="/projects/$category/$slug" params={{ category: project.categorySlug, slug: project.slug }} className="block">
                 <article className="group overflow-hidden rounded-[2rem] bg-card shadow-soft transition-shadow duration-500 hover:shadow-lift">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={project.image}
-                      alt={`${project.name} — ${project.category} interior, ${project.year}`}
+                      alt={`${project.name} — ${project.category}, ${project.year}`}
                       loading="lazy"
                       className="size-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
                     />
@@ -70,7 +72,7 @@ export function ProjectShowcase() {
                     <div>
                       <h3 className="font-display text-lg">{project.name}</h3>
                       <p className="mt-1 text-xs text-muted-foreground">
-                        {project.category} · {project.year}
+                        {project.location} · {project.year}
                       </p>
                     </div>
                     <span
@@ -81,6 +83,7 @@ export function ProjectShowcase() {
                     </span>
                   </div>
                 </article>
+                </Link>
               </motion.li>
             ))}
           </AnimatePresence>

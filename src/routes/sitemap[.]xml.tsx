@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-const urls = ["/", "/#about", "/#projects", "/#services", "/#contact"];
+import { CORE_AREAS, PROJECTS, PROJECT_GROUPS } from "@/constants/site";
+
+const BASE = "https://housefiedinterior.lovable.app";
+const urls = [
+  "/", "/who-we-are", "/our-standards", "/contact",
+  ...CORE_AREAS.map((c) => `/core-areas/${c.slug}`),
+  ...PROJECT_GROUPS.map((g) => `/projects/${g.slug}`),
+  ...PROJECTS.map((p) => `/projects/${p.categorySlug}/${p.slug}`),
+].map((u) => BASE + u);
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

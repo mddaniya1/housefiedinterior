@@ -1,4 +1,5 @@
-import { BRAND, FOOTER_LINKS } from "@/constants/site";
+import { Link } from "@tanstack/react-router";
+import { BRAND, FOOTER_LINKS, SOCIAL_LINKS } from "@/constants/site";
 
 const FacebookIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -23,19 +24,20 @@ export function SiteFooter() {
   return (
     <footer className="px-4 pb-8 lg:px-8">
       <div className="mx-auto max-w-[1400px] rounded-[2.5rem] bg-ink px-6 py-14 text-ink-foreground lg:px-14 lg:py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {FOOTER_LINKS.map((column) => (
             <nav key={column.heading} aria-label={column.heading}>
               <h2 className="text-sm font-medium">{column.heading}</h2>
               <ul className="mt-5 space-y-3">
                 {column.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#home"
+                  <li key={link.label}>
+                    <Link
+                      to={link.to}
+                      params={link.params}
                       className="text-sm text-ink-foreground/60 transition-colors hover:text-ink-foreground"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -62,7 +64,7 @@ export function SiteFooter() {
 
             <div className="mt-6 flex items-center gap-4">
               <a
-                href="https://facebook.com/housefiedkarachi"
+                href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -71,7 +73,7 @@ export function SiteFooter() {
                 <FacebookIcon className="h-4 w-4" />
               </a>
               <a
-                href="https://instagram.com/housefied"
+                href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -80,7 +82,7 @@ export function SiteFooter() {
                 <InstagramIcon className="h-4 w-4" />
               </a>
               <a
-                href={BRAND.whatsapp}
+                href={SOCIAL_LINKS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
