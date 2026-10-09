@@ -263,13 +263,13 @@ export const FAQS = [
   },
 ] as const;
 
-export const FOOTER_LINKS: { heading: string; links: { label: string; to: string; params?: Record<string, string> }[] }[] = [
+export const FOOTER_LINKS: { heading: string; links: { label: string; to: string; params: Record<string, string> }[] }[] = [
   {
     heading: "Company",
     links: [
-      { label: "Who We Are", to: "/who-we-are" },
-      { label: "Our Standards", to: "/our-standards" },
-      { label: "Contact Us", to: "/contact" },
+      { label: "Who We Are", to: "/who-we-are", params: {} },
+      { label: "Our Standards", to: "/our-standards", params: {} },
+      { label: "Contact Us", to: "/contact", params: {} },
     ],
   },
   {
