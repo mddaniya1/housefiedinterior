@@ -98,7 +98,7 @@ function Login() {
   }
 
   async function forgot() {
-    if (!email) return toast.error("Enter your email first.");
+    if (!email) { toast.error("Enter your email first."); return; }
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
     });
@@ -140,9 +140,9 @@ function Dashboard({ email }: { email: string }) {
   }, []);
 
   async function remove(p: ProjectRow) {
-    if (!confirm(`Delete "${p.title}"? This cannot be undone.`)) return;
+    if (!confirm(`Delete "${p.title}"? This cannot be undone.`)) return undefined;
     const { error } = await supabase.from("projects").delete().eq("id", p.id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     const paths = [p.cover_image_url, ...p.gallery_urls]
       .filter((u) => u.startsWith(IMAGE_PROXY_PREFIX))
       .map((u) => u.slice(IMAGE_PROXY_PREFIX.length));
@@ -252,14 +252,14 @@ function ProjectForm({ project, onDone }: { project: ProjectRow | null; onDone: 
 
   async function submit(e: FormEvent) {
     e.preventDefault();
-    if (!cover) return toast.error("Please add a cover image.");
+    if (!cover) { toast.error("Please add a cover image."); return; }
     setSaving(true);
     const values = { title, category, location, year, description, cover_image_url: cover, gallery_urls: gallery };
     const { error } = project
       ? await supabase.from("projects").update(values).eq("id", project.id)
       : await supabase.from("projects").insert({ ...values, slug: `${slugify(title)}-${Date.now().toString(36).slice(-4)}` });
     setSaving(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success(project ? "Project updated" : "Project added");
     onDone();
   }

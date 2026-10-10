@@ -6,8 +6,8 @@ import { toProject, type ProjectRow } from "@/lib/projects";
 
 /** Server-only publishable client for public reads (no session). */
 export function publicSupabase() {
-  const url = process.env.SUPABASE_URL!;
-  const key = process.env.SUPABASE_PUBLISHABLE_KEY!;
+  const url = process.env['SUPABASE_URL']!;
+  const key = process.env['SUPABASE_PUBLISHABLE_KEY']!;
   return createClient<Database>(url, key, {
     auth: { storage: undefined, persistSession: false, autoRefreshToken: false },
     global: {
