@@ -22,6 +22,7 @@ import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as ProjectsCategoryIndexRouteImport } from './routes/projects.$category.index'
 import { Route as ProjectsCategorySlugRouteImport } from './routes/projects.$category.$slug'
+import { Route as ApiPublicProjectImagesSplatRouteImport } from './routes/api/public/project-images.$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -91,6 +92,12 @@ const ProjectsCategorySlugRoute = ProjectsCategorySlugRouteImport.update({
   path: '/projects/$category/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicProjectImagesSplatRoute =
+  ApiPublicProjectImagesSplatRouteImport.update({
+    id: '/api/public/project-images/$',
+    path: '/api/public/project-images/$',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -106,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
   '/projects/$category/': typeof ProjectsCategoryIndexRoute
+  '/api/public/project-images/$': typeof ApiPublicProjectImagesSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -121,6 +129,7 @@ export interface FileRoutesByTo {
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
   '/projects/$category': typeof ProjectsCategoryIndexRoute
+  '/api/public/project-images/$': typeof ApiPublicProjectImagesSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -137,6 +146,7 @@ export interface FileRoutesById {
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
   '/projects/$category/': typeof ProjectsCategoryIndexRoute
+  '/api/public/project-images/$': typeof ApiPublicProjectImagesSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/.mcp/invoke-tool/$tool'
     | '/projects/$category/$slug'
     | '/projects/$category/'
+    | '/api/public/project-images/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -169,6 +180,7 @@ export interface FileRouteTypes {
     | '/.mcp/invoke-tool/$tool'
     | '/projects/$category/$slug'
     | '/projects/$category'
+    | '/api/public/project-images/$'
   id:
     | '__root__'
     | '/'
@@ -184,6 +196,7 @@ export interface FileRouteTypes {
     | '/.mcp/invoke-tool/$tool'
     | '/projects/$category/$slug'
     | '/projects/$category/'
+    | '/api/public/project-images/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -200,6 +213,7 @@ export interface RootRouteChildren {
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
   ProjectsCategorySlugRoute: typeof ProjectsCategorySlugRoute
   ProjectsCategoryIndexRoute: typeof ProjectsCategoryIndexRoute
+  ApiPublicProjectImagesSplatRoute: typeof ApiPublicProjectImagesSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -295,6 +309,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsCategorySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/project-images/$': {
+      id: '/api/public/project-images/$'
+      path: '/api/public/project-images/$'
+      fullPath: '/api/public/project-images/$'
+      preLoaderRoute: typeof ApiPublicProjectImagesSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -313,6 +334,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
   ProjectsCategorySlugRoute: ProjectsCategorySlugRoute,
   ProjectsCategoryIndexRoute: ProjectsCategoryIndexRoute,
+  ApiPublicProjectImagesSplatRoute: ApiPublicProjectImagesSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
