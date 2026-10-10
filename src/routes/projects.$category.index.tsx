@@ -1,11 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { PROJECTS, PROJECT_GROUPS } from "@/constants/site";
+import { PROJECT_GROUPS } from "@/constants/site";
+import { projectsQuery } from "@/lib/projects.functions";
 import { PageHero } from "@/components/sections/page-hero";
 import { Reveal } from "@/components/motion/reveal";
 
 export const Route = createFileRoute("/projects/$category/")({
-  loader: ({ params }) => {
+  loader: async ({ params, context }) => {
+    const PROJECTS = await context.queryClient.ensureQueryData(projectsQuery());
     const group = PROJECT_GROUPS.find((g) => g.slug === params.category);
     if (!group) throw notFound();
     return { group, projects: PROJECTS.filter((p) => p.categorySlug === group.slug) };

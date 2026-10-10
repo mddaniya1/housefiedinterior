@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { projectsQuery } from "@/lib/projects.functions";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { BRAND, FAQS } from "@/constants/site";
@@ -19,6 +20,7 @@ const DESCRIPTION =
   "HOUSEFIED, Interior Design & Turnkey Execution in Karachi — luxury kitchens, TV walls, bespoke bathrooms, smart wardrobes and full home turnkey projects.";
 
 export const Route = createFileRoute("/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(projectsQuery()),
   head: () => ({
     meta: [
       { title: TITLE },
