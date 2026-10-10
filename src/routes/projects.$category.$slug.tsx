@@ -1,12 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
-import { PROJECTS } from "@/constants/site";
+import { projectsQuery } from "@/lib/projects.functions";
 import { PageHero } from "@/components/sections/page-hero";
 import { WhatsAppButton } from "@/components/sections/whatsapp-button";
 import { Reveal } from "@/components/motion/reveal";
 
 export const Route = createFileRoute("/projects/$category/$slug")({
-  loader: ({ params }) => {
+  loader: async ({ params, context }) => {
+    const PROJECTS = await context.queryClient.ensureQueryData(projectsQuery());
     const project = PROJECTS.find((p) => p.slug === params.slug && p.categorySlug === params.category);
     if (!project) throw notFound();
     return { project };

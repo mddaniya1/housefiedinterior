@@ -2,12 +2,15 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { PROJECTS, PROJECT_CATEGORIES, type ProjectCategory } from "@/constants/site";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { PROJECT_CATEGORIES, type ProjectCategory } from "@/constants/site";
+import { projectsQuery } from "@/lib/projects.functions";
 import { Reveal, EASE } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 
 /** Filterable portfolio grid. */
 export function ProjectShowcase() {
+  const { data: PROJECTS } = useSuspenseQuery(projectsQuery());
   const [active, setActive] = useState<ProjectCategory>("All");
   const visible = active === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === active);
 
@@ -51,7 +54,7 @@ export function ProjectShowcase() {
           <AnimatePresence mode="popLayout">
             {visible.map((project) => (
               <motion.li
-                key={project.name}
+                key={project.slug}
                 layout
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}

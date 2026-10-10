@@ -10,9 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as OurStandardsRouteImport } from './routes/our-standards'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
@@ -22,10 +24,16 @@ import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as ProjectsCategoryIndexRouteImport } from './routes/projects.$category.index'
 import { Route as ProjectsCategorySlugRouteImport } from './routes/projects.$category.$slug'
+import { Route as ApiPublicProjectImagesSplatRouteImport } from './routes/api/public/project-images.$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -41,6 +49,11 @@ const McpRoute = McpRouteImport.update({
 const OurStandardsRoute = OurStandardsRouteImport.update({
   id: '/our-standards',
   path: '/our-standards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -91,12 +104,20 @@ const ProjectsCategorySlugRoute = ProjectsCategorySlugRouteImport.update({
   path: '/projects/$category/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicProjectImagesSplatRoute =
+  ApiPublicProjectImagesSplatRouteImport.update({
+    id: '/api/public/project-images/$',
+    path: '/api/public/project-images/$',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
   '/mcp': typeof McpRoute
   '/our-standards': typeof OurStandardsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -106,12 +127,15 @@ export interface FileRoutesByFullPath {
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
   '/projects/$category/': typeof ProjectsCategoryIndexRoute
+  '/api/public/project-images/$': typeof ApiPublicProjectImagesSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
   '/mcp': typeof McpRoute
   '/our-standards': typeof OurStandardsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -121,13 +145,16 @@ export interface FileRoutesByTo {
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
   '/projects/$category': typeof ProjectsCategoryIndexRoute
+  '/api/public/project-images/$': typeof ApiPublicProjectImagesSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
   '/mcp': typeof McpRoute
   '/our-standards': typeof OurStandardsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -137,14 +164,17 @@ export interface FileRoutesById {
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
   '/projects/$category/': typeof ProjectsCategoryIndexRoute
+  '/api/public/project-images/$': typeof ApiPublicProjectImagesSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/contact'
     | '/mcp'
     | '/our-standards'
+    | '/reset-password'
     | '/sitemap.xml'
     | '/who-we-are'
     | '/.mcp/list-tools'
@@ -154,12 +184,15 @@ export interface FileRouteTypes {
     | '/.mcp/invoke-tool/$tool'
     | '/projects/$category/$slug'
     | '/projects/$category/'
+    | '/api/public/project-images/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/contact'
     | '/mcp'
     | '/our-standards'
+    | '/reset-password'
     | '/sitemap.xml'
     | '/who-we-are'
     | '/.mcp/list-tools'
@@ -169,12 +202,15 @@ export interface FileRouteTypes {
     | '/.mcp/invoke-tool/$tool'
     | '/projects/$category/$slug'
     | '/projects/$category'
+    | '/api/public/project-images/$'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/contact'
     | '/mcp'
     | '/our-standards'
+    | '/reset-password'
     | '/sitemap.xml'
     | '/who-we-are'
     | '/.mcp/list-tools'
@@ -184,13 +220,16 @@ export interface FileRouteTypes {
     | '/.mcp/invoke-tool/$tool'
     | '/projects/$category/$slug'
     | '/projects/$category/'
+    | '/api/public/project-images/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   ContactRoute: typeof ContactRoute
   McpRoute: typeof McpRoute
   OurStandardsRoute: typeof OurStandardsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WhoWeAreRoute: typeof WhoWeAreRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
@@ -200,6 +239,7 @@ export interface RootRouteChildren {
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
   ProjectsCategorySlugRoute: typeof ProjectsCategorySlugRoute
   ProjectsCategoryIndexRoute: typeof ProjectsCategoryIndexRoute
+  ApiPublicProjectImagesSplatRoute: typeof ApiPublicProjectImagesSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -209,6 +249,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -230,6 +277,13 @@ declare module '@tanstack/react-router' {
       path: '/our-standards'
       fullPath: '/our-standards'
       preLoaderRoute: typeof OurStandardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -295,14 +349,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsCategorySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/project-images/$': {
+      id: '/api/public/project-images/$'
+      path: '/api/public/project-images/$'
+      fullPath: '/api/public/project-images/$'
+      preLoaderRoute: typeof ApiPublicProjectImagesSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   ContactRoute: ContactRoute,
   McpRoute: McpRoute,
   OurStandardsRoute: OurStandardsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WhoWeAreRoute: WhoWeAreRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
@@ -313,6 +376,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
   ProjectsCategorySlugRoute: ProjectsCategorySlugRoute,
   ProjectsCategoryIndexRoute: ProjectsCategoryIndexRoute,
+  ApiPublicProjectImagesSplatRoute: ApiPublicProjectImagesSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
