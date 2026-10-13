@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin } from "lucide-react";
-import { BRAND, IMAGES } from "@/constants/site";
+import { BRAND, GOOGLE_MAPS, IMAGES } from "@/constants/site";
 import { PageHero } from "@/components/sections/page-hero";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { Reveal } from "@/components/motion/reveal";
@@ -37,13 +36,27 @@ function ContactPage() {
               <li>{BRAND.address.street}, {BRAND.address.city}</li>
               <li>WhatsApp / Phone: <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`} className="text-foreground hover:underline">{BRAND.phone}</a></li>
               <li>Email: <a href={`mailto:${BRAND.email}`} className="text-foreground hover:underline">{BRAND.email}</a></li>
+              <li>
+                <a
+                  href={GOOGLE_MAPS.shareUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:underline"
+                >
+                  Open in Google Maps
+                </a>
+              </li>
             </ul>
           </Reveal>
-          <Reveal delay={0.08} className="grid min-h-72 place-items-center rounded-[2rem] bg-sand text-sand-foreground">
-            <div className="text-center">
-              <MapPin className="mx-auto size-8" strokeWidth={1.5} />
-              <p className="mt-3 text-sm">Map coming soon — Bahadurabad, Karachi</p>
-            </div>
+          <Reveal delay={0.08} className="min-h-72 overflow-hidden rounded-[2rem] bg-sand shadow-soft">
+            <iframe
+              title="HOUSEFIED studio location on Google Maps — Bahadurabad, Karachi"
+              src={GOOGLE_MAPS.embedUrl}
+              className="h-full min-h-72 w-full border-0 lg:min-h-[28rem]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </Reveal>
         </div>
       </section>

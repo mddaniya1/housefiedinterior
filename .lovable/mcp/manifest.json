@@ -2,13 +2,6 @@
   "version": 1,
   "sdk_version": "0.26.1",
   "path": "/mcp",
-  "auth": {
-    "type": "oauth",
-    "issuer": "https://zvuxymhkzbnmhcjyerpd.supabase.co/auth/v1",
-    "accepted_audiences": [
-      "authenticated"
-    ]
-  },
   "mcp": {
     "server": {
       "name": "ethereal-spaces",

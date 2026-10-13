@@ -48,19 +48,29 @@ export const BRAND = {
   satelliteAddress: "Block B, Adamjee Nagar Society, Karachi",
   hours: "Closed · Opens 10:00 AM on Monday",
   social: [
-    { platform: "Facebook", handle: "Housefied Karachi" },
+    { platform: "Facebook", handle: "Housefied" },
     { platform: "Instagram", handle: "@housefied" },
+    { platform: "WhatsApp", handle: "+92 339 4122544" },
   ],
 } as const;
 
 export const WHATSAPP_BOOKING_URL =
   "https://wa.me/923394122544?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20for%20my%20interior%20design%20project.";
 
-/** Social profile links — replace these placeholder URLs with the real profiles. */
 export const SOCIAL_LINKS = {
-  facebook: "https://facebook.com/your-page",
-  instagram: "https://instagram.com/your-handle",
+  facebook: "https://www.facebook.com/Housefied/",
+  instagram: "https://www.instagram.com/housefied",
   whatsapp: "https://wa.me/923394122544",
+} as const;
+
+/** Google Maps — studio location (Qurtuba Market, Bahadurabad). */
+export const GOOGLE_MAPS = {
+  shareUrl: "https://share.google/1fE4QR3b9LZm9x9pG",
+  /** Embeddable iframe src for the contact page map. */
+  embedUrl:
+    "https://www.google.com/maps?q=24.881078,67.066639&z=17&hl=en&output=embed",
+  lat: 24.881078,
+  lng: 67.066639,
 } as const;
 
 export const HERO = {

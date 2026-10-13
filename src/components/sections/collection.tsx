@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import { COLLECTION } from "@/constants/site";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
-import { cn } from "@/lib/utils";
 
 /** Masonry-style collection grid with mixed card heights and hover lift. */
 export function Collection() {
@@ -25,14 +24,11 @@ export function Collection() {
           </div>
         </Reveal>
 
-        <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {COLLECTION.map((item, index) => (
             <Reveal as="li" key={item.name} delay={index * 0.08}>
               <article
-                className={cn(
-                  "group relative h-full overflow-hidden rounded-[2rem] bg-secondary",
-                  item.span === "tall" ? "aspect-[4/5]" : "aspect-[4/3]",
-                )}
+                className="group relative w-full aspect-[4/5] overflow-hidden rounded-[2rem] bg-secondary"
               >
                 <img
                   src={item.image}
