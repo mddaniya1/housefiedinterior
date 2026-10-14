@@ -1,10 +1,8 @@
 import { defineMcp } from "@lovable.dev/mcp-js";
 
 import getStudioInfoTool from "./tools/get-studio-info";
-import listMyConsultationRequestsTool from "./tools/list-my-consultation-requests";
 import listProjectsTool from "./tools/list-projects";
 import listServicesTool from "./tools/list-services";
-import submitConsultationRequestTool from "./tools/submit-consultation-request";
 
 export default defineMcp({
   name: "ethereal-spaces",
@@ -16,7 +14,5 @@ export default defineMcp({
     getStudioInfoTool,
     listServicesTool,
     listProjectsTool,
-    submitConsultationRequestTool,
-    listMyConsultationRequestsTool,
   ] as unknown as Parameters<typeof defineMcp>[0]["tools"],
 });

@@ -19,7 +19,6 @@ import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as CoreAreasSlugRouteImport } from './routes/core-areas.$slug'
-import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as ProjectsCategoryIndexRouteImport } from './routes/projects.$category.index'
 import { Route as ProjectsCategorySlugRouteImport } from './routes/projects.$category.$slug'
@@ -76,11 +75,6 @@ const CoreAreasSlugRoute = CoreAreasSlugRouteImport.update({
   path: '/core-areas/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
-  id: '/.lovable/oauth/consent',
-  path: '/.lovable/oauth/consent',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const Char91DotmcpChar93InvokeToolToolRoute =
   Char91DotmcpChar93InvokeToolToolRouteImport.update({
     id: '/.mcp/invoke-tool/$tool',
@@ -109,7 +103,6 @@ export interface FileRoutesByFullPath {
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/core-areas/$slug': typeof CoreAreasSlugRoute
-  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
   '/projects/$category/': typeof ProjectsCategoryIndexRoute
@@ -125,7 +118,6 @@ export interface FileRoutesByTo {
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/core-areas/$slug': typeof CoreAreasSlugRoute
-  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
   '/projects/$category': typeof ProjectsCategoryIndexRoute
@@ -142,7 +134,6 @@ export interface FileRoutesById {
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/core-areas/$slug': typeof CoreAreasSlugRoute
-  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/projects/$category/$slug': typeof ProjectsCategorySlugRoute
   '/projects/$category/': typeof ProjectsCategoryIndexRoute
@@ -160,7 +151,6 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/core-areas/$slug'
-    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
     | '/projects/$category/$slug'
     | '/projects/$category/'
@@ -176,7 +166,6 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/core-areas/$slug'
-    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
     | '/projects/$category/$slug'
     | '/projects/$category'
@@ -192,7 +181,6 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/core-areas/$slug'
-    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
     | '/projects/$category/$slug'
     | '/projects/$category/'
@@ -209,7 +197,6 @@ export interface RootRouteChildren {
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   CoreAreasSlugRoute: typeof CoreAreasSlugRoute
-  DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
   ProjectsCategorySlugRoute: typeof ProjectsCategorySlugRoute
   ProjectsCategoryIndexRoute: typeof ProjectsCategoryIndexRoute
@@ -287,13 +274,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoreAreasSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/.lovable/oauth/consent': {
-      id: '/.lovable/oauth/consent'
-      path: '/.lovable/oauth/consent'
-      fullPath: '/.lovable/oauth/consent'
-      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/.mcp/invoke-tool/$tool': {
       id: '/.mcp/invoke-tool/$tool'
       path: '/.mcp/invoke-tool/$tool'
@@ -330,7 +310,6 @@ const rootRouteChildren: RootRouteChildren = {
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
   CoreAreasSlugRoute: CoreAreasSlugRoute,
-  DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
   ProjectsCategorySlugRoute: ProjectsCategorySlugRoute,
   ProjectsCategoryIndexRoute: ProjectsCategoryIndexRoute,
