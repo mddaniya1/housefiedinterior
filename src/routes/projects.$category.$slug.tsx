@@ -16,7 +16,7 @@ export const Route = createFileRoute("/projects/$category/$slug")({
     if (!loaderData) return { meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }] };
     const p = loaderData.project;
     const title = `${p.name} — HOUSEFIED Projects`;
-    const url = `https://housefiedinterior.lovable.app/projects/${params.category}/${params.slug}`;
+    const url = `https://housefiedinterior.vercel.app/projects/${params.category}/${params.slug}`;
     return {
       meta: [
         { title },
@@ -53,11 +53,17 @@ function ProjectDetailPage() {
               <WhatsAppButton className="mt-10" />
             </Reveal>
             <div className="grid gap-4 sm:grid-cols-2 lg:col-span-8">
-              {project.gallery.map((img, i) => (
-                <Reveal key={i} delay={i * 0.06} className={i === 0 ? "overflow-hidden rounded-[2rem] sm:col-span-2" : "overflow-hidden rounded-[2rem]"}>
-                  <img src={img} alt={`${project.name} photo ${i + 1}`} loading="lazy" className={i === 0 ? "h-96 w-full object-cover" : "h-72 w-full object-cover"} />
+              {project.gallery.length > 0 ? (
+                project.gallery.map((img, i) => (
+                  <Reveal key={i} delay={i * 0.06} className={i === 0 ? "overflow-hidden rounded-[2rem] sm:col-span-2" : "overflow-hidden rounded-[2rem]"}>
+                    <img src={img} alt={`${project.name} photo ${i + 1}`} loading="lazy" className={i === 0 ? "h-96 w-full object-cover" : "h-72 w-full object-cover"} />
+                  </Reveal>
+                ))
+              ) : (
+                <Reveal className="col-span-full overflow-hidden rounded-[2rem]">
+                  <img src={project.image} alt={project.name} loading="lazy" className="h-96 w-full object-cover" />
                 </Reveal>
-              ))}
+              )}
             </div>
           </div>
         </div>

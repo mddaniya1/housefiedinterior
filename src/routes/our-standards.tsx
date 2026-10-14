@@ -5,7 +5,7 @@ import { Reveal } from "@/components/motion/reveal";
 
 const TITLE = "Our Standards — HOUSEFIED Karachi";
 const DESC = "Imported hardware, precise joinery, quality materials, on-site supervision and a clean handover on every HOUSEFIED project.";
-const URL = "https://housefiedinterior.lovable.app/our-standards";
+const URL = "https://housefiedinterior.vercel.app/our-standards";
 
 export const Route = createFileRoute("/our-standards")({
   head: () => ({

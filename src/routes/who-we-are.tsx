@@ -6,7 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 
 const TITLE = "Who We Are — HOUSEFIED, Interior Design in Karachi";
 const DESC = "Meet HOUSEFIED, the Karachi interior design and turnkey execution studio led by Hamza.";
-const URL = "https://housefiedinterior.lovable.app/who-we-are";
+const URL = "https://housefiedinterior.vercel.app/who-we-are";
 
 export const Route = createFileRoute("/who-we-are")({
   head: () => ({

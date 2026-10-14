@@ -16,7 +16,7 @@ export const Route = createFileRoute("/projects/$category/")({
     if (!loaderData) return { meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }] };
     const title = `${loaderData.group.label} Projects — HOUSEFIED Karachi`;
     const desc = `Selected ${loaderData.group.label.toLowerCase()} projects designed and executed by HOUSEFIED in Karachi.`;
-    const url = `https://housefiedinterior.lovable.app/projects/${params.category}`;
+    const url = `https://housefiedinterior.vercel.app/projects/${params.category}`;
     return {
       meta: [
         { title },

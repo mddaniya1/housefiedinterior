@@ -13,7 +13,7 @@ export const Route = createFileRoute("/core-areas/$slug")({
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }] };
     const title = `${loaderData.area.title} — HOUSEFIED Karachi`;
-    const url = `https://housefiedinterior.lovable.app/core-areas/${params.slug}`;
+    const url = `https://housefiedinterior.vercel.app/core-areas/${params.slug}`;
     return {
       meta: [
         { title },

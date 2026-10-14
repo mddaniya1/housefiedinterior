@@ -6,7 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 
 const TITLE = "Contact Us — HOUSEFIED Karachi";
 const DESC = "Visit HOUSEFIED in Bahadurabad, Karachi, call or WhatsApp +92 339 4122544, or book a free consultation.";
-const URL = "https://housefiedinterior.lovable.app/contact";
+const URL = "https://housefiedinterior.vercel.app/contact";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

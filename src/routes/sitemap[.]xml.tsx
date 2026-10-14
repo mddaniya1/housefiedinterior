@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { CORE_AREAS, PROJECTS, PROJECT_GROUPS } from "@/constants/site";
 
-const BASE = "https://housefiedinterior.lovable.app";
+const BASE = "https://housefiedinterior.vercel.app";
 const urls = [
   "/", "/who-we-are", "/our-standards", "/contact",
   ...CORE_AREAS.map((c) => `/core-areas/${c.slug}`),
