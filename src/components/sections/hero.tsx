@@ -34,14 +34,34 @@ export function Hero() {
         </motion.div>
 
         <div className="relative flex min-h-[78vh] flex-col justify-between p-6 sm:min-h-[86vh] lg:p-12">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
-            className="eyebrow text-ink-foreground/75"
-          >
-            {BRAND.tagline} · {BRAND.address.city}
-          </motion.p>
+          <div className="flex items-center justify-between">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
+              className="eyebrow text-ink-foreground/75"
+            >
+              {BRAND.tagline} · {BRAND.address.city}
+            </motion.p>
+            {/* Mobile TURNKEY · KHI badge */}
+            <motion.div
+              aria-hidden="true"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: EASE, delay: 0.2 }}
+              className="lg:hidden"
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
+                className="grid size-16 place-items-center rounded-full border border-[oklch(1_0_0_/_0.35)]"
+              >
+                <span className="font-display text-[0.5rem] tracking-[0.2em] text-ink-foreground/80">
+                  TURNKEY · KHI
+                </span>
+              </motion.div>
+            </motion.div>
+          </div>
 
           <div className="mt-10">
             <h1 className="display-xl max-w-[18ch] text-ink-foreground">{HERO.heading}</h1>
